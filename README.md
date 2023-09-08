@@ -19,15 +19,6 @@
 
 <br>
 
-## 개발인원
-
-|&nbsp;강진수&nbsp;|
-|:---:|:---:|:---:|
-|:eyeglasses:|:beer:|:headphones:|
-|[@LetsGo](https://github.com/NLNL4358)
-/////////////////////////////////////////////
-|헤더 영역<br>Editor’s Clip 영역<br>에버랜드 앱 영역<br>이용요금 페이지|메인 슬라이드 영역<br>날씨 / 지도 API 영역<br>스마트 예약 / 티켓 프로모션 영역<br>에버랜드 스토리 페이지|What’s New 영역<br>With Everland 영역<br>푸터 영역<br>추천 코스 페이지|
-
 <br>
 
 ## 개발환경
@@ -39,17 +30,19 @@
 <img src="https://img.shields.io/badge/VS_code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white"/> <img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma&logoColor=white"/> <img src="https://img.shields.io/badge/Adobe_Illustrator-FF9A00?style=flat-square&logo=adobeillustrator&logoColor=white"/> <img src="https://img.shields.io/badge/Adobe_photoshop-31A8FF?style=flat-square&logo=adobephotoshop&logoColor=white"/>
 
 ####   :star: 개발 언어
-<img src="https://img.shields.io/badge/html5-E34F26?style=flat-square&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/css3-1572B6?style=flat-square&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat-square&logo=javascript&logoColor=white"/> <img src="https://img.shields.io/badge/jquery-0769AD?style=flat-square&logo=jquery&logoColor=white"/> <img src="https://img.shields.io/badge/swiper-6332F6?style=flat-square&logo=swiper&logoColor=white"/> <img src="https://img.shields.io/badge/kakaoMap_API-FFCD00?style=flat-square&logo=kakao&logoColor=white"/> <img src="https://img.shields.io/badge/OpenWeatherMap_API-3693F3?style=flat-square&logo=icloud&logoColor=white"/>
+<img src="https://img.shields.io/badge/html5-E34F26?style=flat-square&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/css3-1572B6?style=flat-square&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat-square&logo=javascript&logoColor=white"/> <img src="https://img.shields.io/badge/jquery-0769AD?style=flat-square&logo=jquery&logoColor=white"/> <img src="https://img.shields.io/badge/swiper-6332F6?style=flat-square&logo=swiper&logoColor=white"/> 
+<br>
 
-####   :star: 소통
-<img src="https://img.shields.io/badge/slack-4A154B?style=flat-square&logo=slack&logoColor=white"/> <img src="https://img.shields.io/badge/notion-000000?style=flat-square&logo=notion&logoColor=white"/>
+####   :star: 사용 API
+<img src="https://developers.neople.co.kr/img/logo.png" />
+
 
 <br>
 
 ## 프로젝트 소개 
-:pencil2: 에버랜드 웹 페이지를 방문한 고객에게 어트랙션 소개 및 행사, 할인등의 정보를 전달하고 빠른 예매기능을 이용하여 에버랜드의 방문을 유도함
+:pencil2: 사이퍼즈 웹 페이지 메인에 방문한 사용자에게 다양한 콘텐츠와 API활용 가능케하여 기능적인 측면을 강화함
 
-:pencil2: 정적인 기존 사이트의 리뉴얼로 동적이며 사용자의 접근성과 사용성을 높임
+///////////////////////////////////////////////////////
 
 <br>
 
