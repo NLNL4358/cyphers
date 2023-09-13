@@ -1,0 +1,132 @@
+.HeaderNexon{
+  width: 100%;
+  height: 65px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.HeaderNexon_Left{
+  width: 33%;
+  margin-right: auto;
+}
+
+.HeaderNexon_Left_Button{
+  height: 30px;
+  margin-left: 20px;
+}
+
+.HeaderNexon_Left_Button img{
+  height: 100%;
+  margin-right: 5px;
+}
+
+.HeaderNexon_Middle{
+  width: 33%;
+  margin: auto;
+  text-align: center;
+}
+
+.HeaderNexon_Right{
+  width: 33%;
+  margin-left: auto;
+  height: 100%;
+  padding-right: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.NexonCard_Button, .NexonPCRoom_Button{
+  width: 25px;
+  height: 25px;
+  /* overflow: hidden; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  position: relative;
+
+}
+.HeaderSpriteIcon{
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  background-color : #191919;
+  background-image: url("../../public/img/icon/set_gnb_icon.png") ;
+}
+.HeaderSpriteIcon:hover{
+  background-color : var(--point-color3) ;
+}
+.HeaderSpriteIcon.nexonCard{
+  background-position: 0px 0px;
+}
+.HeaderSpriteIcon.nexonCard::before{
+
+  content: "N";
+  position: absolute;
+  width: 13px;
+  font-size: 3px;
+  height: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;  
+  background-color: var(--point-color3);
+  border-radius: 50%;
+  overflow: hidden;
+  right: -3px;
+  top: -5px;
+  z-index: 5;
+}
+.HeaderSpriteIcon.nexonPCRoom{
+  background-position: 0px -51px;
+}
+.HeaderSpriteIcon.nexonPCRoom::before{
+  content: "OFF";
+  position: absolute;
+  width: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3px;
+  height: 12px;
+  color: white;  
+  background-color: rgb(160, 160, 160);
+  border-radius: 7px;
+  overflow: hidden;
+  right: -6px;
+  top: -5px;
+  z-index: 5;
+}
+
+.createAccount a{
+  color : var(--light-text-color1);
+  font-weight: 600;
+  margin-right: 8px;
+}
+  .createAccount a:hover{
+    color : var(--point-color3);
+  }
+
+
+.LoginButton{
+  width: 120px;
+  height: 37px;
+  border: 2px solid #333 ;
+  border-radius: 2rem;
+
+  transition: 0.4s;
+}
+.LoginButton body{
+  font-weight: bold;
+  transition: 0.5s;
+
+}
+ .LoginButton:hover{
+    background-color: var(--point-color3);
+    border: none;
+  }
+ .LoginButton:hover body{
+    color: white;
+ }

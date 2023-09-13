@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Black+Ops+One&family=Lobster&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @font-face { font-family: 'TheJamsil5Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2'); font-weight: 100, 300, 400, 500, 700 , 800; font-style: normal; }
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@font-face { font-family: 'EF_MACHO'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/EF_MACHO.woff2') format('woff2'); font-weight: normal; font-style: normal; }
 
 @font-face {
   font-family: 'Noto+Sans+KR';
@@ -17,15 +21,16 @@
   text-decoration: none;
   font-family: "Noto+Sans+KR";
   box-sizing: border-box;
+
+  font-size : 15px;
 }
 section{
   background-color: white;
 }
 :root{
-  --inner-size : 1280px;
 
-  /* size - html 기본값 16px 기준*/
-  --h1-size: 3.50rem; /* 56px; */
+  /* size - html 기본값 15px 기준*/
+  --h1-size: 3.73rem; /* 56px; */
   --h2-size: 3.0rem;/* 45px */
   --h3-size: 2.47rem;/* 37px */
   --h4-size: 1.87rem;/* 28px */
@@ -35,18 +40,21 @@ section{
   --body-size: 1.0rem;/* 15px */
   --small-size: 0.87rem; /* 13px */
   /* color */
-  --point-color1 : #FF5000;
-  --point-color2 : #1D9CD1;
+  --point-color1 : #EB4242;
+  --point-color2 : #FABE00;
+  --point-color3 : #07f;
   --border-color1 : #eee;
   --border-color2 : #333; 
-  --mascot-color : #FDADA6;
   --light-text-color1 : #666;
   --light-text-color2 : #BBB;
 }
 
 .inner{
   width: calc(1920px - (100vw - 100%));
-  
+}
+
+.contents_inner{
+  width: 1600px;
 }
 
 h1{
@@ -71,11 +79,17 @@ h5{
 }
 p{
   font-size : var(--p-size);
-  font-weight: 400;
+  font-weight: 500;
 }
 span{
   font-size: var(--span-size);
-  font-weight: 300;
+  font-weight: 500;
+
+}
+
+body{
+  font-size: var(--body-size);
+  font-weight: 500;
 }
 
 button{
@@ -93,31 +107,3 @@ point{
 point2{
   color : var(--point-color2);
 }
-
-
-@media screen and (max-width:960px) {
-  .section_name{
-    font-size : var(--h3-size);
-    text-align: center;
-  }
-  .section_sub_name{
-    display: block;
-    width: 85%;
-    margin: auto;
-    font-size : var(--span-size);
-    text-align: center;
-  }
-  .link_button{
-    margin : auto;
-  }
-}
-
-
-/* @media screen and (max-width:545px) {
-  .section_name{
-    font-size : var(--h4-size);
-  }
-  .section_sub_name{
-    font-size : var(--body-size);
-  }
-} */
