@@ -1,3 +1,14 @@
 *{
   
 }
+
+.BlackOps{
+  font-family: 'Black Ops One', cursive;
+}
+
+.PointColor1{
+  color : var(--point-color1);
+}
+.PointColor2{
+  color : var(--point-color2);
+}

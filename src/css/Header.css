@@ -1,3 +1,4 @@
+
 .HeaderNexon{
   width: 100%;
   height: 65px;
@@ -130,3 +131,157 @@
  .LoginButton:hover body{
     color: white;
  }
+
+
+
+
+/* Header Main */
+.HeaderMainTop{
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+
+  position: relative;
+}
+.LogoWrap{
+  margin-left: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.LogoWrap a{ 
+  display: block;
+  height: 50px;
+}
+.LogoWrap a .LogoImage{ 
+  height: 100%;
+}
+
+
+.GnbWrap{
+  width: 912px;
+  height: 100%;
+}
+.GnbUl{
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.GnbLi, .GnbLi a, .GnbLi a p{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.GnbLi a p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: var(--light-text-color2);
+}
+
+.GameStartWrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.LogInButton{
+  height: 100%;
+  padding : 0px 37px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+}
+.LogInButton img{
+  width: 21px;
+  height: 21px;
+}
+.LogInButton span{
+  font-weight: bold;
+  color: #BBB;
+}
+
+.HeaderGameStartButton{
+  width: 270px;
+  height: 100%;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.HeaderGameStartButton img{
+  position: absolute;
+  width: 450px;
+  height: 90px;
+
+  left: -450px;
+
+  transition: 0.7s;
+}
+.HeaderGameStartButton h4{
+  z-index: 5;
+  transition: 0.2s;
+}
+.HeaderGameStartButton:hover h4{
+  color : white;
+}
+.HeaderGameStartButton:hover img{
+  left: 0;
+}
+
+
+.HeaderMainBottom{
+  width: 100%;
+  height: 420px;
+  /* background-color: #111; */
+  float: top;
+  transition: 0.2s;
+}
+
+.SnbWrap{
+  width: 912px;
+  margin: auto;
+  padding-top: 40px;
+}
+.SnbUl{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.SnbLi{
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+.SnbText{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--span-size);
+  padding: 10px 0px;
+}

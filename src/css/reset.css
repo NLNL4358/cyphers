@@ -23,10 +23,12 @@
   box-sizing: border-box;
 
   font-size : 15px;
+  pointer-events : auto;
 }
 section{
   background-color: white;
 }
+
 :root{
 
   /* size - html 기본값 15px 기준*/
@@ -107,3 +109,4 @@ point{
 point2{
   color : var(--point-color2);
 }
+

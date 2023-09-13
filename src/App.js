@@ -24,13 +24,11 @@ function App() {
     1. API 검색을 위한 사용자 닉네임
   */
   const [userNickName, setUserNickName] = useState("");
-
+  useEffect(()=>{
+    console.log("userNameChanged : ", userNickName);
+  },[userNickName]);
 
   /* API 불러오기 */
-
-  /* API 키 */
-  // const myApiKey = 
-
 
   useEffect(()=>{
     console.log(process.env.REACT_APP_API_KEY);
