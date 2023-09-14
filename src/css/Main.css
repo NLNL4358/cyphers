@@ -50,6 +50,7 @@
 }
 
 .MainGamePlayButton{
+  margin-top : 50px;
   font-size: var(--h4-size);
   width: 300px;
   height: 75px;
