@@ -4,6 +4,9 @@ import './css/App.css';
 import {useState, useEffect} from 'react';
 import {Link, Routes, Route, BrowserRouter, useNavigate, useLocation} from 'react-router-dom';
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 /* env 파일을 사용하기위해서 해줘야하는 작업
 1. npm install --save dotenv 
 2. .env 파일을 루트폴더에 생성(src아님)
@@ -28,8 +31,14 @@ function App() {
     console.log("userNameChanged : ", userNickName);
   },[userNickName]);
 
-  /* API 불러오기 */
 
+  /* AOS */
+  useEffect(() => {
+    AOS.init();
+  },[])
+
+
+  /* API 불러오기 */
   useEffect(()=>{
     console.log(process.env.REACT_APP_API_KEY);
   },[]);

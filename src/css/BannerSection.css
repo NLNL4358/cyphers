@@ -1,0 +1,50 @@
+.BannerSection{
+  height: 590px;
+}
+.CyphersBannerSwiper, .CyphersBannerSlide, .CyphersBannerImage{
+  width: 100%;
+  height: 100%;
+}
+.CyphersBannerSlide a{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.CyphersBannerImage{
+
+}
+
+.swiper-button-prev{
+  margin-left: 5%;
+}
+.swiper-button-next{
+  margin-right: 5%;
+}
+.swiper-button-prev::after, .swiper-button-next:after{
+  display: none;
+}
+.swiper-button-prev::before, .swiper-button-next::before{
+  content: "";
+  position: absolute;
+  width: 47px;
+  height: 47px;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  transform: translate(-50%,-50%);
+  z-index: 10;
+  background-image: url("../../public/img/slides/slide_button.png");
+  background-repeat: no-repeat;
+
+  transition: 0.2s;
+}
+.swiper-button-prev:hover::before, .swiper-button-next:hover::before{
+  background-image: url("../../public/img/slides/slide_button_hover.png");
+}
+.swiper-button-next::before{
+  background-position: 0px -50px;
+}
+
+.swiper-scrollbar-drag{
+  background-color: var(--point-color1);
+}

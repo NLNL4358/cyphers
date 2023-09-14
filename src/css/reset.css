@@ -60,36 +60,44 @@ section{
 }
 
 h1{
+  /* 56px */
   font-size: var(--h1-size);
   font-weight: bold;
 }
 h2{
+  /* 45px */
   font-size: var(--h2-size);
   font-weight: bold;
 }
 h3{
+  /* 37px */
   font-size: var(--h3-size);
   font-weight: 500;
 }
 h4{
+  /* 28px */
   font-size: var(--h4-size);
   font-weight: 500;
 }
 h5{
+  /* 24px */
   font-size: var(--h5-size);
   font-weight: 500;
 }
 p{
+  /* 21px */
   font-size : var(--p-size);
   font-weight: 500;
 }
 span{
+  /* 18px */
   font-size: var(--span-size);
   font-weight: 500;
 
 }
 
 body{
+  /* 15px */
   font-size: var(--body-size);
   font-weight: 500;
 }

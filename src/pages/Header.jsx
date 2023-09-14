@@ -1,6 +1,7 @@
+import { hover } from '@testing-library/user-event/dist/hover';
 import React from 'react'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 
 import '../css/Header.css';
@@ -64,15 +65,25 @@ const Header = () => {
     ]
   ];
 
-  /* 스크롤되었을때 상단 fix */
+  /* 스크롤되었을때 HeaderNexon의 높이 0으로 만들자 */
   let [headerScroll, setHeaderScroll] = useState("");
   
   let [gnbHover, setGnbHover] = useState("");
-  
+
+  const gnbMouseOver = (index) => {
+    setGnbHover("hover");
+  }
+  const gnbMouseOut = (index) => {
+    setGnbHover("");
+  }
+
+
+
+
   
   return (
     <div className='Header inner'>
-      <div className="HeaderNexon">
+      <div className={`HeaderNexon ${headerScroll}`}>
         <div className="HeaderNexon_Left">
           <button className='HeaderNexon_Left_Button'>
             <img src="img/icon/hamburger.png" alt="" />
@@ -106,59 +117,61 @@ const Header = () => {
         </div>
       </div>
       {/* 스크롤 되었을때 상단 fix  */}
-      <div className={`HeaderMain ${headerScroll}`}>
-        <div className="HeaderMainTop">
-          <div className="LogoWrap">
-            <Link to="/">
-              <img className="LogoImage" src="img/logo/cyphers_logo.png" alt="" />
-            </Link>
-          </div>
+      <div className="HeaderMainWrap">
+        <div className={`HeaderMain ${headerScroll} ${gnbHover}`}>
+          <div className="HeaderMainTop">
+            <div className="LogoWrap">
+              <Link to="/">
+                <img className="LogoImage" src="img/logo/cyphers_logo.png" alt="" />
+              </Link>
+            </div>
 
-          <div className="GnbWrap">
-            <ul className='GnbUl'>
-              {
-                gnbList.map((item, index)=>(
-                  <li className={`GnbLi ${index}`}>
-                    <Link>
-                      <p>
-                        {item}
-                      </p>
-                    </Link>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-          
-          <div className="GameStartWrap">
-            <Link to='/' className='LogInButton'>
-              <img src="img/icon/login_button_icon_BBB.png" alt="" />
-              <span>Login</span>
-            </Link>
-
-            <button className='HeaderGameStartButton'>
-              <h4 className='BlackOps PointColor1'>Game Start</h4>
-              <img src="img/icon/buttonBack_color.png" alt="" />
-            </button>
-          </div>
-        </div>
-        <div className="HeaderMainBottom">
-          <div className="SnbWrap">
-            <ul className='SnbUl'>
-              {
-                snbList.map((item, index)=>(
-                  <li className={`SnbLi ${index}`}>
-                    {
-                      item.map((item, index)=>(
-                        <Link className='SnbText'>
+            <div className="GnbWrap" onMouseOver={gnbMouseOver} onMouseOut={gnbMouseOut}>
+              <ul className='GnbUl'>
+                {
+                  gnbList.map((item, index)=>(
+                    <li className={`GnbLi ${index}`}>
+                      <Link>
+                        <p>
                           {item}
-                        </Link>
-                      ))
-                    }
-                  </li>
-                ))
-              }
-            </ul>
+                        </p>
+                      </Link>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            
+            <div className="GameStartWrap">
+              <Link to='/' className='HeaderMainLogInButton'>
+                <div className='HeaderMainLoginIcon' alt="" />
+                <span>Login</span>
+              </Link>
+
+              <button className='HeaderGameStartButton'>
+                <h4 className='BlackOps PointColor1'>Game Start</h4>
+                <img src="img/icon/buttonBack_color.png" alt="" />
+              </button>
+            </div>
+          </div>
+          <div className={`HeaderMainBottom ${gnbHover}`} onMouseOver={gnbMouseOver} onMouseOut={gnbMouseOut}>
+            <div className="SnbWrap">
+              <ul className='SnbUl' onMouseOver={gnbMouseOver} onMouseOut={gnbMouseOut}>
+                {
+                  snbList.map((item, index)=>(
+                    <li className={`SnbLi ${index}`}>
+                      {
+                        item.map((item, index)=>(
+                          <Link className='SnbText'>
+                            {item}
+                          </Link>
+                        ))
+                      }
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
           </div>
         </div>
       </div>

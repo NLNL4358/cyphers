@@ -42,6 +42,14 @@
 ## 프로젝트 소개 
 :pencil2: 사이퍼즈 웹 페이지 메인에 방문한 사용자에게 다양한 콘텐츠와 API활용 가능케하여 기능적인 측면을 강화함
 
+<br>
+
+## 사용 npm install
+ #### 1. npm install react-router-dom
+ #### 2. npm install dotenv
+ #### 3. npm install swiper
+ #### 4. npm install aos --save
+
 ///////////////////////////////////////////////////////
 
 <br>
