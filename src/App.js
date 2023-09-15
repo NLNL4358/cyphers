@@ -26,7 +26,7 @@ function App() {
   /* useState 사용될 것 :  
     1. API 검색을 위한 사용자 닉네임
   */
-  const [userNickName, setUserNickName] = useState("");
+  const [userNickName, setUserNickName] = useState("홍길동");
   useEffect(()=>{
     console.log("userNameChanged : ", userNickName);
   },[userNickName]);
@@ -40,6 +40,7 @@ function App() {
 
   /* API 불러오기 */
   useEffect(()=>{
+    /* 로그는 나중에 지워야해 */
     console.log(process.env.REACT_APP_API_KEY);
   },[]);
 
@@ -52,7 +53,7 @@ function App() {
     <div className="App inner">
       <Header></Header>
       <Routes>
-        <Route path='/' element={<HomePage></HomePage>}>
+        <Route path='/' element={<HomePage userNickName={userNickName} setUserNickName={()=>{setUserNickName()}}></HomePage>}>
  
         </Route>
       </Routes>

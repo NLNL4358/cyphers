@@ -5,7 +5,12 @@
 .BlackOps{
   font-family: 'Black Ops One', cursive;
 }
-
+.Macho{
+  font-family : 'EF_MACHO';
+}
+.Jamsil {
+  font-family : 'TheJamsil5Bold';
+}
 .PointColor1{
   color : var(--point-color1);
 }

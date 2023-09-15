@@ -1,4 +1,3 @@
-import { hover } from '@testing-library/user-event/dist/hover';
 import React from 'react'
 
 import { useState, useEffect } from 'react';
@@ -67,7 +66,8 @@ const Header = () => {
 
   /* 스크롤되었을때 HeaderNexon의 높이 0으로 만들자 */
   let [headerScroll, setHeaderScroll] = useState("");
-  
+  /* 스크롤 양 */
+  let [scrollAmount, setScrollAmount] = useState(0);
   let [gnbHover, setGnbHover] = useState("");
 
   const gnbMouseOver = (index) => {
@@ -76,6 +76,36 @@ const Header = () => {
   const gnbMouseOut = (index) => {
     setGnbHover("");
   }
+
+  /* 스크롤 판단함수 선언 */
+  const judgeGnbHover = (target) => {
+    if(target > 70){
+      setHeaderScroll("scrolled");
+    }
+    else{
+      setHeaderScroll("");
+    }
+  }
+  /* 마운트 됐을때 이벤트 리스너 등록 */
+  useEffect(()=>{
+    /* 스크롤양의 useState 를 set해주는 함수를 작성*/
+    const handleScroll = () => {
+      setScrollAmount(window.scrollY);
+    }
+    /* scroll 이벤트에 맞춰 함수를 호출 */
+    window.addEventListener("scroll", handleScroll);
+
+
+    // 컴포넌트 언마운트 시 스크롤 이벤트 리스너 제거
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  },[]);
+
+  /* useEffect를 사용하여 useState인 scrollAmount가 변화할때마다 판단하는 함수 호출!! */
+  useEffect(()=>{
+    judgeGnbHover(scrollAmount);
+  },[scrollAmount])
 
 
 
@@ -117,8 +147,8 @@ const Header = () => {
         </div>
       </div>
       {/* 스크롤 되었을때 상단 fix  */}
-      <div className="HeaderMainWrap">
-        <div className={`HeaderMain ${headerScroll} ${gnbHover}`}>
+      <div className="HeaderMainWrap ">
+        <div className={`HeaderMain inner ${headerScroll} ${gnbHover}`}>
           <div className="HeaderMainTop">
             <div className="LogoWrap">
               <Link to="/">

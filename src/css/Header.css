@@ -142,9 +142,12 @@
   position: absolute;
   top: 0%;
   left: 0%;
-  width: 100%;
   z-index: 10;
   background-color: rgba(0,0,0,0.7);
+ }
+ .HeaderMain.scrolled{
+  position: fixed;
+  background-color: #000;
  }
   .HeaderMain.hover{
     background-color:  rgb(17,17,17);

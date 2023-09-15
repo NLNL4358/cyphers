@@ -10,14 +10,16 @@ import StorySection from '../components/StorySection'
 import CypherSection from '../components/CypherSection'
 import MapSection from '../components/MapSection'
 
-const HomePage = () => {
+
+/* props로 전달받는 것 userNickName 유저네임, setUserNickName Set유저네임 */
+const HomePage = (props) => {
   return (
     <div className='Homepage'>
       <Main></Main>
-      <BannerSection></BannerSection>
       <NewsSection></NewsSection>
       <AcePickSection></AcePickSection>
-      <ApiSearchSection></ApiSearchSection>
+      <BannerSection></BannerSection>
+      <ApiSearchSection userNickName={props.userNickName} setUserNickName={()=>{props.setUserNickName()}}></ApiSearchSection>
       <StorySection></StorySection>
       <CypherSection></CypherSection>
       <MapSection></MapSection>

@@ -52,11 +52,13 @@ section{
 }
 
 .inner{
-  width: calc(1920px - (100vw - 100%));
+  /* width: calc(1920px - (100vw - 100%)); */
+  width: 1903.4px;
 }
 
 .contents_inner{
   width: 1600px;
+  margin : auto;
 }
 
 h1{
@@ -102,6 +104,12 @@ body{
   font-weight: 500;
 }
 
+small{
+  /* 12px */
+  font-size: var(--small-size);
+  font-weight: 300;
+}
+
 button{
   background-color: transparent;
   border: none;
@@ -118,3 +126,9 @@ point2{
   color : var(--point-color2);
 }
 
+
+@media screen and (min-width : 1920px) {
+  .inner{
+    width : 100%
+  }
+}

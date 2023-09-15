@@ -41,7 +41,7 @@ const Main = () => {
       <div className="MainVideoWrap">
         {/* videoUrls 의 갯수만큼 동영상을 자동으로 순차재생하는 기믹
              */}
-        <video className='MainVideo' id="videoPlayer" src={videoUrls[currentVideoIndex]} controls autoPlay muted />
+        <video preload="auto" className='MainVideo' id="videoPlayer" src={videoUrls[currentVideoIndex]} controls autoPlay muted />
       </div>
       <div className="MainCenterWrap" >
         <p data-aos="fade-up" data-aos-duration="1000">전략 액션 AOS 게임</p>
