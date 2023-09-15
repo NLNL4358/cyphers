@@ -53,7 +53,7 @@ function App() {
     <div className="App inner">
       <Header></Header>
       <Routes>
-        <Route path='/' element={<HomePage userNickName={userNickName} setUserNickName={()=>{setUserNickName()}}></HomePage>}>
+        <Route path='/' element={<HomePage userNickName={userNickName} setUserNickName={setUserNickName}></HomePage>}>
  
         </Route>
       </Routes>

@@ -1,0 +1,119 @@
+.ApiSearchSection{
+  height: 500px;
+  padding: 30px 0px;
+  position: relative;
+
+}
+.ApiPointBackgroundImage{
+  position: absolute;
+  left : 0;
+  bottom: 0;
+}
+.ApiPointBackgroundImageMirror{
+  position: absolute;
+  right : 0;
+  top : 0;
+  transform: rotate(180deg);
+}
+.ApiContentsWrap{
+  padding: 100px 0px;
+  margin-left : auto;
+  margin-right: 0px;
+  position: relative;
+}
+.ApiContentsCharacterImage{
+  position: absolute;
+  height: 100%;
+
+  right: 100px;
+  top: 0;
+}
+/* .ApiContentsName{
+  position: relative;
+}
+.NeopleApiLogo{
+  width: 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%,-80%) rotate(-15deg);
+
+} */
+.ApiContentText{
+  display: block;
+  font-weight: bold;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+.inputFrom{
+  margin-top: 50px;
+  margin-left : 15px;
+
+  position: relative;
+}
+.NeopleApiLogo{
+  position: absolute;
+
+  right: 600px;
+  top: calc(0% - 25px);
+
+  transform: translate(50%,-100%);
+}
+.inputWrap{
+  width: 1200px;
+  height: 80px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 50px;
+  overflow: hidden;
+  border: 1px solid #E7E9EB;
+
+  box-shadow: 0px 0px 4px #8B8B8B;
+  
+  position: relative;
+}
+.inputText{
+  width: 164px;
+  height: 100%;
+  background-color: #F2F4F6;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ApiInputArea{
+  margin-right: auto;
+  padding-left: 50px;
+  width: 1000px;
+  height: 100%;
+  border: 0px;
+
+  font-size: var(--h5-size);
+}
+.ApiInputArea::placeholder{
+  color : var(--light-text-color2);
+}
+.ApiInputArea:focus{
+  outline: none;
+}
+
+.userNameSubmitButton{
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 50%;
+  right : 70px;
+  transform: translate(0%,-50%);
+}
+.userNameSubmitButtonImage{
+  width: 100%;
+  opacity: 0.4;
+  transition: 0.2s;
+}
+.userNameSubmitButton:hover .userNameSubmitButtonImage{
+  opacity: 0.7;
+}
