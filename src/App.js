@@ -25,8 +25,13 @@ function App() {
 
   /* useState 사용될 것 :  
     1. API 검색을 위한 사용자 닉네임
+    2. 사용자 닉네임으로 받은 사용자 playerId;
   */
-  const [userNickName, setUserNickName] = useState("홍길동");
+  const [userNickName, setUserNickName] = useState("");
+  
+  const [userPlayerId, setUserPlayerId] = useState("");
+
+
   useEffect(()=>{
     console.log("userNameChanged : ", userNickName);
   },[userNickName]);
@@ -44,7 +49,10 @@ function App() {
     console.log(process.env.REACT_APP_API_KEY);
   },[]);
 
-
+  
+  useEffect(()=>{
+    console.log("userPlayerId : ",userPlayerId);
+  },[userPlayerId])
 
 
 
@@ -53,7 +61,7 @@ function App() {
     <div className="App inner">
       <Header></Header>
       <Routes>
-        <Route path='/' element={<HomePage userNickName={userNickName} setUserNickName={setUserNickName}></HomePage>}>
+        <Route path='/' element={<HomePage userNickName={userNickName} setUserNickName={setUserNickName} userPlayerId={userPlayerId} setUserPlayerId={setUserPlayerId}></HomePage>}>
  
         </Route>
       </Routes>

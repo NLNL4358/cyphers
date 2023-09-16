@@ -61,56 +61,102 @@
 }
 .inputWrap{
   width: 1200px;
-  height: 80px;
+  height: 70px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  border-radius: 50px;
+  border-radius: 15px;
   overflow: hidden;
   border: 1px solid #E7E9EB;
 
-  box-shadow: 0px 0px 4px #8B8B8B;
+  box-shadow: 0px 0px 2px #8B8B8B;
   
   position: relative;
 }
 .inputText{
-  width: 164px;
+  width: 200px;
   height: 100%;
-  background-color: #F2F4F6;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  cursor: pointer;
+  position: relative;
+
+}
+.gameType{
+  color : #808080;
+  font-weight: bold;
+}
+  .inputText::after{
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-image: url("../../public/img/icon/changeIcon.png");
+    opacity: 0.4;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 5;
+    right: 10px;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .inputText::before{
+    position: absolute;
+    content: "Game Type";
+    font-size: 12px;
+    top: 10%;
+    left: 30px;
+    color : var(--light-text-color2);
+  }
+.slash{
+  height: 40%;
+  width: 1px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  border-right: 1px solid var(--light-text-color2);
+  transform: translate(-50%,-50%);
+}
+
+.plsTextHear{
+  position: absolute;
+  left: 250px;
+  top: 10%;
+  font-size: 12px;
+  color: var(--light-text-color2);
 }
 
 .ApiInputArea{
   margin-right: auto;
+  color: #808080;
   padding-left: 50px;
   width: 1000px;
   height: 100%;
   border: 0px;
-
-  font-size: var(--h5-size);
+  font-size: var(--p-size);
 }
-.ApiInputArea::placeholder{
-  color : var(--light-text-color2);
-}
-.ApiInputArea:focus{
-  outline: none;
-}
+  .ApiInputArea::placeholder{
+    color : var(--light-text-color2);
+  }
+  .ApiInputArea:focus{
+    outline: none;
+  }
 
 .userNameSubmitButton{
   position: absolute;
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   top: 50%;
   right : 70px;
   transform: translate(0%,-50%);
 }
 .userNameSubmitButtonImage{
-  width: 100%;
+  width: 25px;
   opacity: 0.4;
   transition: 0.2s;
 }
