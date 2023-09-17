@@ -83,6 +83,7 @@ const ApiSearchSection = (props) => {
     getPlayerID();
   }
   
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 
     /* API 호출 [플레이어 ID] */
     const getPlayerID = async () =>{
@@ -92,10 +93,9 @@ const ApiSearchSection = (props) => {
       } 
 
       /* Netlify 호스팅을 위한 세팅 */
-      const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 
       /* 중요 !! CORS에러때문에 package.json안에 "proxy"값을 추가해주었다 사이퍼즈 API가 사용되는 호스트인 https://api.neople.co.kr/cy 까지를 추가했기에 이후의 주소는 /player 혹은 /matches 등으로 시작하며 불러오면 된다 */
-      const url = `${PROXY}players?nickname=${userNameInput}&wordType=<wordType>&apikey=${process.env.REACT_APP_API_KEY}`
+      const url = `${PROXY}/players?nickname=${userNameInput}&wordType=<wordType>&apikey=${process.env.REACT_APP_API_KEY}`
 
       try{
         /* fetch가 끝날때까지 await */

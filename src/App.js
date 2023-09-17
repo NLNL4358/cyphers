@@ -72,6 +72,11 @@ function App() {
     console.log(userMatchData);
   })
 
+  
+  /* Netlify 호스팅을 위한 세팅 */
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+
+
   /* 매치 검색 */
   const getMatch = async () => {
 
@@ -83,8 +88,7 @@ function App() {
 
 
     /* Netlify 호스팅을 위한 세팅 */
-    const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
-    const url = `${PROXY}players/${userPlayerId}/matches?gameTypeId=${gameType}&startDate=${dateFormat1}&endDate=${dateFormat2}&limit=<limit>&next=<next>&apikey=${process.env.REACT_APP_API_KEY}`;
+    const url = `${PROXY}/players/${userPlayerId}/matches?gameTypeId=${gameType}&startDate=${dateFormat1}&endDate=${dateFormat2}&limit=<limit>&next=<next>&apikey=${process.env.REACT_APP_API_KEY}`;
 
     try{
       const response = await fetch(url);
