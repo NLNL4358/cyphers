@@ -25,43 +25,91 @@ function App() {
 
   /* useState 사용될 것 :  
     1. API 검색을 위한 사용자 닉네임
-    2. 사용자 닉네임으로 받은 사용자 playerId;
+    2. 공식전 or 일반전 매칭 타입
+    3. 사용자 닉네임으로 받은 사용자 playerId;
+    4. 사용자 닉네임검색 으로 받은 매칭정보
   */
-  const [userNickName, setUserNickName] = useState("");
-  
-  const [userPlayerId, setUserPlayerId] = useState("");
+  const [userNickName, setUserNickName] = useState(""); /* 유저 닉네임 */
 
+  const [gameType, setGameType] = useState("rating"); /* 매칭 타입 */
+  
+  const [userPlayerId, setUserPlayerId] = useState(""); /* 플레이어 ID */
+
+  const [userMatchData, setUserMatchData] = useState(""); /* 플레이어 매칭 데이터 */
 
   useEffect(()=>{
+    if(userNickName == ""){
+      return;
+    }
     console.log("userNameChanged : ", userNickName);
   },[userNickName]);
 
 
-  /* AOS */
   useEffect(() => {
+    /* AOS */
     AOS.init();
-  },[])
 
-
-  /* API 불러오기 */
-  useEffect(()=>{
-    /* 로그는 나중에 지워야해 */
+    /* API 키 */
     console.log(process.env.REACT_APP_API_KEY);
-  },[]);
+
+  },[])
 
   
   useEffect(()=>{
+    if(userPlayerId==""){
+      return;
+    }
+    /* PlayerId 입력됨 */
     console.log("userPlayerId : ",userPlayerId);
+
+    getMatch();
   },[userPlayerId])
 
+  useEffect(()=>{
+    if(userMatchData == ""){
+      return;
+    }
+    console.log(userMatchData);
+  })
 
+  /* 매치 검색 */
+  const getMatch = async () => {
+
+    /* 시간 (<startDate> , <endDate>) 이 꼭 필요하다!! */
+    let currentDay = new Date();
+    let dateFormat1 = currentDay.getFullYear() + "-" + ( (currentDay.getMonth()+1) < 9 ? "0" + (currentDay.getMonth()+1) : (currentDay.getMonth()+1) ) + "-" + ( (currentDay.getDate()) < 9 ? "0" + (currentDay.getDate()) : (currentDay.getDate()) ) + " 00:00";
+    let threeMonthAgo = new Date(currentDay.setMonth(currentDay.getMonth() - 2));
+    let dateFormat2 = threeMonthAgo.getFullYear() + "-" +  ( (threeMonthAgo.getMonth()+1) < 9 ? "0" + (threeMonthAgo.getMonth()+1) : (threeMonthAgo.getMonth()+1) ) + "-" + ( (threeMonthAgo.getDate()) < 9 ? "0" + (threeMonthAgo.getDate()) : (threeMonthAgo.getDate()) ) + " 23:59";
+    const url = `/players/${userPlayerId}/matches?gameTypeId=${gameType}&startDate=${dateFormat1}&endDate=${dateFormat2}&limit=<limit>&next=<next>&apikey=${process.env.REACT_APP_API_KEY}`;
+
+    try{
+      const response = await fetch(url);
+      if(!response.ok){
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+
+      let gameIndex = 0;  /* 공식이면 0 , 일반이면 1 */
+      if(gameType == "normal"){
+        gameIndex = 1;
+      }
+      /* data.records[0 or 1].winCount or LoseCount or stopCount */
+      const MatchData = await data;
+      setUserMatchData(MatchData);
+    }
+
+    catch(error){
+      console.log("An error occurred:", error.message);
+    }
+  }
 
 
   return (
     <div className="App inner">
       <Header></Header>
       <Routes>
-        <Route path='/' element={<HomePage userNickName={userNickName} setUserNickName={setUserNickName} userPlayerId={userPlayerId} setUserPlayerId={setUserPlayerId}></HomePage>}>
+        <Route path='/' element={<HomePage userNickName={userNickName} setUserNickName={setUserNickName} userPlayerId={userPlayerId} setUserPlayerId={setUserPlayerId} gameType={gameType} setGameType={setGameType}></HomePage>}>
  
         </Route>
       </Routes>

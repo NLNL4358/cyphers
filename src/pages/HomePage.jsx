@@ -19,7 +19,7 @@ const HomePage = (props) => {
       <NewsSection></NewsSection>
       <AcePickSection></AcePickSection>
       <BannerSection></BannerSection>
-      <ApiSearchSection userNickName={props.userNickName} setUserNickName={(target)=>{props.setUserNickName(target)}} userPlayerId={props.userPlayerId} setUserPlayerId={(Id)=>{props.setUserPlayerId(Id)}}></ApiSearchSection>
+      <ApiSearchSection userNickName={props.userNickName} setUserNickName={(target)=>{props.setUserNickName(target)}} userPlayerId={props.userPlayerId} setUserPlayerId={(Id)=>{props.setUserPlayerId(Id)}}  gameType={props.gameType} setGameType={(Type)=>{props.setGameType(Type)}}></ApiSearchSection>
       <StorySection></StorySection>
       <CypherSection></CypherSection>
       <MapSection></MapSection>

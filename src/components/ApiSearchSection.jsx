@@ -46,13 +46,12 @@ const ApiSearchSection = (props) => {
   }
   
   /* 공식전rating, 일반전normal useState*/
-  const [gameType, setGameType] = useState("rating");
   const changeGameType = (type)=>{
     if(type == "rating"){
-      setGameType("normal");
+      props.setGameType("normal");
     }
     else{
-      setGameType("rating");
+      props.setGameType("rating");
     }
   }
   function returningGameType(type){
@@ -141,10 +140,10 @@ const ApiSearchSection = (props) => {
         <form onSubmit={submitFunc} className='inputFrom'>
           <img className='NeopleApiLogo' src="img/logo/neopleApiLogopng.png" alt="" />
           <div className="inputWrap">
-            <div className="inputText" onClick={()=>{changeGameType(gameType)}}>
+            <div className="inputText" onClick={()=>{changeGameType(props.gameType)}}>
               <p className='gameType'>
                 {
-                  returningGameType(gameType)
+                  returningGameType(props.gameType)
                 }
               </p>
               <div className="slash"></div>
