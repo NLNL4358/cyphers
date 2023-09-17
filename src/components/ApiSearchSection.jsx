@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios' // Axios 라이브러리 추가
 
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
@@ -93,17 +92,24 @@ const ApiSearchSection = (props) => {
         return;
       }
 
-      const url = `https://api.neople.co.kr/cy/players?nickname=${userNameInput}&wordType=<wordType>&apikey=${process.env.REACT_APP_API_KEY}`
+      /* 중요 !! CORS에러때문에 package.json안에 "proxy"값을 추가해주었다 사이퍼즈 API가 사용되는 호스트인 https://api.neople.co.kr/cy 까지를 추가했기에 이후의 주소는 /player 혹은 /matches 등으로 시작하며 불러오면 된다 */
+      const url = `/players?nickname=${userNameInput}&wordType=<wordType>&apikey=${process.env.REACT_APP_API_KEY}`
 
       try{
-        const response = await axios.get(url);
+        /* fetch가 끝날때까지 await */
+        const response = await fetch(url);
         if(!response.ok){
           throw new Error("Network response was not ok");
         }
 
-        const data = response.data;
+        /* json() 처리가 끝날때까지 await 필요! */
+        const data = await response.json();
+        /* 여기까지 완료되면 data에는 rows라는 객체안에 하나의 Array가 오게된다!! */
 
-        props.setUserPlayerId(data);
+        /* rows객체의 0번째 배열의 playerId 키가 가르키는 키값이 playerID 값 이다*/
+        const playerId = data.rows[0].playerId;
+
+        props.setUserPlayerId(playerId);
 
       }
 
