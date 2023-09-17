@@ -80,7 +80,11 @@ function App() {
     let dateFormat1 = currentDay.getFullYear() + "-" + ( (currentDay.getMonth()+1) < 9 ? "0" + (currentDay.getMonth()+1) : (currentDay.getMonth()+1) ) + "-" + ( (currentDay.getDate()) < 9 ? "0" + (currentDay.getDate()) : (currentDay.getDate()) ) + " 00:00";
     let threeMonthAgo = new Date(currentDay.setMonth(currentDay.getMonth() - 2));
     let dateFormat2 = threeMonthAgo.getFullYear() + "-" +  ( (threeMonthAgo.getMonth()+1) < 9 ? "0" + (threeMonthAgo.getMonth()+1) : (threeMonthAgo.getMonth()+1) ) + "-" + ( (threeMonthAgo.getDate()) < 9 ? "0" + (threeMonthAgo.getDate()) : (threeMonthAgo.getDate()) ) + " 23:59";
-    const url = `/players/${userPlayerId}/matches?gameTypeId=${gameType}&startDate=${dateFormat1}&endDate=${dateFormat2}&limit=<limit>&next=<next>&apikey=${process.env.REACT_APP_API_KEY}`;
+
+
+    /* Netlify 호스팅을 위한 세팅 */
+    const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+    const url = `${PROXY}/players/${userPlayerId}/matches?gameTypeId=${gameType}&startDate=${dateFormat1}&endDate=${dateFormat2}&limit=<limit>&next=<next>&apikey=${process.env.REACT_APP_API_KEY}`;
 
     try{
       const response = await fetch(url);
