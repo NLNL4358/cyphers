@@ -82,9 +82,9 @@ function App() {
 
     /* 시간 (<startDate> , <endDate>) 이 꼭 필요하다!! */
     let currentDay = new Date();
-    let dateFormat1 = currentDay.getFullYear() + "-" + ( (currentDay.getMonth()) < 9 ? "0" + (currentDay.getMonth()+1) : (currentDay.getMonth()+1) ) + "-" + ( (currentDay.getDate()) < 9 ? "0" + (currentDay.getDate()) : (currentDay.getDate()) ) + " 00:00";
+    let dateFormat1 = currentDay.getFullYear() + "-" + ( (currentDay.getMonth()) < 9 ? "0" + (currentDay.getMonth()+1) : (currentDay.getMonth()+1) ) + "-" + ( (currentDay.getDate()) < 9 ? "0" + (currentDay.getDate()) : (currentDay.getDate()) ) +" "+ (currentDay.getHours())+":"+(currentDay.getMinutes());
     let threeMonthAgo = new Date(currentDay.setMonth(currentDay.getMonth() - 2));
-    let dateFormat2 = threeMonthAgo.getFullYear() + "-" +  ( (threeMonthAgo.getMonth()) < 9 ? "0" + (threeMonthAgo.getMonth()+1) : (threeMonthAgo.getMonth()+1) ) + "-" + ( (threeMonthAgo.getDate()) < 9 ? "0" + (threeMonthAgo.getDate()) : (threeMonthAgo.getDate()) ) + " 23:59";
+    let dateFormat2 = threeMonthAgo.getFullYear() + "-" +  ( (threeMonthAgo.getMonth()) < 9 ? "0" + (threeMonthAgo.getMonth()+1) : (threeMonthAgo.getMonth()+1) ) + "-" + ( (threeMonthAgo.getDate()) < 9 ? "0" + (threeMonthAgo.getDate()) : (threeMonthAgo.getDate()) ) +" "+ (currentDay.getHours())+":"+(currentDay.getMinutes()+1);
 
 
     /* Netlify 호스팅을 위한 세팅 */
