@@ -18,24 +18,153 @@
   color : var(--point-color2);
 }
 
-.PointButton1{
-  background-color: var(--point-color1);
+.PointButtonWrap{
+  padding: 5px;
+  width: fit-content;
+  height: fit-content;
   position: relative;
 }
-  .PointButton1::before{
+.Point1_Outline{
+  position: absolute;
+  width: 254px;
+  height: 59px;
+  border-top: 1px solid var(--point-color1);
+  border-left: 1px solid var(--point-color1);
+
+  right: 4px;
+  bottom: 4px;
+
+  transition: 0.5s;
+}
+.Point2_Outline{
+  position: absolute;
+  width: 254px;
+  height: 59px;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+
+  right: 4px;
+  top : 42px;
+
+  transition: 0.5s;
+}
+  .Point1_Outline::after{
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 22.3px;
+    background-color: black;
+    bottom: 0;
+    left: -15px;
+    bottom: -10px;
+    transform: rotate(45deg);
+    z-index: 10;
+  }
+  .Point2_Outline::after{
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 22.3px;
+    background-color: black;
+    bottom: 0;
+    left: -15px;
+    bottom: -10px;
+    transform: rotate(45deg);
+    z-index: 10;
+  }
+.PointButtonWrap:hover .Point1_Outline{
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+}
+.PointButtonWrap:hover .Point2_Outline{
+  border-top: 1px solid var(--point-color1);
+  border-left: 1px solid var(--point-color1);
+}
+
+.PointButton1,.PointButton2{
+  position: relative;
+
+  transition: 0.5s;
+}
+
+.PointButton1{
+  background-color: var(--point-color1);
+}
+  .PointButton1:hover{
+    border: 1px solid white;
+  }
+.PointButton2{
+  background-color: white;
+}
+
+  .PointButton1::before,.PointButton2::before{
     position: absolute;
     content: "";
     width: 100%;
     height: 100%;
-    border: 2px solid var(--point-color1);
+    border-right: none;
+    border-bottom: none;
     left: -4px;
     top: -4px;
   }
-  .PointButton1::after{
+  .PointButton1::after,.PointButton2::after{
     position: absolute;
     content: "";
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
+    width: 20px;
+    height: 22px;
+    background-color: black;
     z-index: 10;
+
+    left: -11px;
+    bottom: -12px;
+    transform: rotate(-45deg);
+
+    z-index: 10;
+    transition: 0.7s;
   }
+    .PointButton1:hover::after{
+      border-right: 1.3px solid white;
+    }
+  .PointButton2::before{
+    border: 2px solid white;
+  }
+  .PointButton1::before{
+    border: 2px solid var(--point-color1);
+  }
+
+.ButtonHoverImage{
+  position: absolute;
+  width: 450px;
+  height: 90px;
+  left: -500px;
+  top : 0%;
+  
+  transition: 0.5s;
+}
+.PointButton1:hover .ButtonHoverImage,
+.PointButton2:hover .ButtonHoverImage
+{
+  left: 0%;
+}
+
+
+.PointButtonText_white,.PointButtonText_black{
+  position: absolute;
+  right: 127px;
+  bottom: 21px;
+  transform: translate(50%);
+  font-size: var(--p-size);
+  pointer-events: none;
+}
+.PointButtonText_white{
+
+  transition: 0.3s;
+  color: white;
+}
+.PointButtonText_black{
+  color: black;
+  transition: 0.3s;
+}
+.PointButtonWrap:hover .PointButtonText_black{
+  color: white;
+}

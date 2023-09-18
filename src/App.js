@@ -17,8 +17,9 @@ import "aos/dist/aos.css";
 import Header from './pages/Header';
 import Footer from './pages/Footer';
 import HomePage from './pages/HomePage';
-
-
+import StoryPage from './pages/StoryPage';
+import CypherPage from './pages/CypherPage';
+import MapPage from './pages/MapPage';
 function App() {
 
 
@@ -117,9 +118,18 @@ function App() {
     <div className="App inner">
       <Header></Header>
       <Routes>
+        {/* 메인 */}
         <Route path='/' element={<HomePage userNickName={userNickName} setUserNickName={setUserNickName} userPlayerId={userPlayerId} setUserPlayerId={setUserPlayerId} gameType={gameType} setGameType={setGameType}></HomePage>}>
- 
         </Route>
+
+        {/* 스토리 */}
+        <Route path='/StoryPage' element={<StoryPage></StoryPage>}></Route>
+
+        {/* 사이퍼 */}
+        <Route path='/CypherPage' element={<CypherPage></CypherPage>}></Route>
+
+        {/* 맵 */}
+        <Route path='/MapPage' element={<MapPage></MapPage>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

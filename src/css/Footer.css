@@ -1,0 +1,20 @@
+.FooterPadding{
+  background-color: black;
+  height: 80px;
+  width: 100%;
+}
+.FooterTop{
+  height: 100%;
+}
+.FooterNavUl{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FooterNavLi{
+  position: relative;
+}
+.FooterNavLink{
+  padding: 37px 35px;
+}

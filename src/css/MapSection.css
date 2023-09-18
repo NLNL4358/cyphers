@@ -1,0 +1,35 @@
+.MapSection{
+  height: 965px;
+  background-color: black;
+  position: relative;
+}
+
+.MapSectionBackground{
+  position: absolute;
+  pointer-events: none;
+}
+.MapBackground{
+  width: 1240px;
+  right: 0;
+  top: 0;
+}
+.TruperBackground{
+  width: 665px;
+  top : 144px;
+  right: 440px;
+}
+
+.MapMainName, .MapSubName, .MapText{
+  color: #EEE;
+
+}
+.MapMainName
+{
+  font-size: 100px;
+  font-weight: 100;
+}
+.MapSubName{
+  margin-top: 40px;
+  margin-bottom: 35px;
+  font-weight: bold;
+}

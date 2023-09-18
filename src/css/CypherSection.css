@@ -1,0 +1,52 @@
+.CypherSection{
+  height: 1000px;
+  overflow: hidden;
+  background-color: black;
+  position: relative;
+}
+.CypherSectionBackground{
+  position: absolute;
+  height: 100%;
+
+  right: 693px;
+  top: 52px;
+}
+
+.CypherSectionTextWrap{
+  position: absolute;
+  right: 240px;
+  top: 233px;
+}
+.CypherMainName,.CypherSubName,.CypherText{
+  color: #EEE;
+  text-align: right;
+}
+.CypherMainName{
+  font-size: 100px;
+  font-weight: 100;
+}
+.CypherSubName{
+  margin-top: 40px;
+  margin-bottom: 35px;
+  font-weight: bold;
+}
+.CypherText{
+  font-weight: 100;
+  margin-bottom: 25px;
+}
+
+.CypherButton{
+  font-size: var(--p-size);
+  color: #EEE;
+  width: 250px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 40px;
+  margin-left: 100px;
+
+  position: relative;
+  overflow: hidden;
+}

@@ -1,0 +1,68 @@
+.StorySection{
+  background-color: black;
+  height: 965px;
+  position: relative;
+  overflow: hidden;
+}
+  .StorySection::after{
+    position: absolute;
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    pointer-events: none;
+    right: -35px;
+    top: -75px;
+    transform: rotate(-60deg);
+  }
+
+.StorySectionBackground,.StorySectionGradation{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.StorySectionTextWrap{
+  position: absolute;
+  left: 12.5%;
+  top: 34%;
+}
+.StoryMainName,.StorySubName,.StoryText{
+  color: #EEE;
+}
+.StoryMainName{
+  font-size: 100px;
+  font-weight: 100;
+
+}
+.StorySubName{
+  margin-top: 40px;
+  margin-bottom: 35px;
+  font-weight: bold;
+}
+.StoryText{
+  font-weight: 100;
+}
+
+
+.StoryButton{
+  font-size: var(--p-size);
+  color: #EEE;
+  width: 250px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 40px;
+  margin-left: 70px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.StoryButtonHoverImage{
+
+}
