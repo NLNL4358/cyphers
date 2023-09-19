@@ -49,7 +49,7 @@ const StoryPageMain = () => {
           }
         </div>
         <Routes>
-          <Route path='./StoryPageEclipse' element={<StoryPageEclipse></StoryPageEclipse>}></Route>
+          <Route path='./' element={<StoryPageEclipse></StoryPageEclipse>}></Route>
           <Route path='./StoryPageSuperMoon' element={<StoryPageSuperMoon></StoryPageSuperMoon>}></Route>
           <Route path='./StoryPageBlueMoon' element={<StoryPageBlueMoon></StoryPageBlueMoon>}></Route>
         </Routes>

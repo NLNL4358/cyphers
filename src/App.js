@@ -123,7 +123,8 @@ function App() {
         </Route>
 
         {/* 스토리 */}
-        <Route path='/StoryPage' element={<StoryPage></StoryPage>}></Route>
+        {/* 라우트 안에 라우트가 필요할떄 와일드 카드(*)를 주소 뒤에 붙혀준다 이후 무엇인가 더 온다는 뜻이다 */}
+        <Route path='/StoryPage/*' element={<StoryPage></StoryPage>}></Route>
 
         {/* 사이퍼 */}
         <Route path='/CypherPage' element={<CypherPage></CypherPage>}></Route>

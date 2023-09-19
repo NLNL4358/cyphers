@@ -6,7 +6,7 @@ const StoryPageTop = () => {
   return (
     <div className='StoryPageTop inner'>
       <div className="StoryPageTopWrap">
-        <img className='StoryPageBackgroundImage' src={`${process.env.PUBLIC_URL}img/backgrounds/StoryPageMainImage.png`} alt="" />
+        <img className='StoryPageBackgroundImage' src="img/backgrounds/StoryPageMainImage.png" alt="" />
         <div className="StoryPageTopTextWrap" data-aos="fade-up" data-aos-duration="1000">
           <h1 className='Bebas StoryPageTopTextWhite'>UNIVERSE OF</h1>
           <h1 className='Bebas StoryPageTopTextBlack'>CYPHERS</h1>
