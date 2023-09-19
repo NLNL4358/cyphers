@@ -11,6 +11,9 @@
 .Jamsil {
   font-family : 'TheJamsil5Bold';
 }
+.Bebas{
+  font-family : 'Bebas Neue', cursive;
+}
 .PointColor1{
   color : var(--point-color1);
 }

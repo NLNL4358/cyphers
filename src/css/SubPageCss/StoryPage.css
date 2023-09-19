@@ -1,0 +1,62 @@
+.StoryPageTop{
+  height: 570px;
+}
+.StoryPageTopWrap{
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.StoryPageBackgroundImage{
+  position: absolute;
+  left: 0;
+  top: -210px;
+  z-index: -5;
+}
+.StoryPageTopTextWrap{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+
+}
+.StoryPageTopTextWhite,.StoryPageTopTextBlack{
+  font-size: 100px;
+  line-height: 100px;
+  font-weight: bold;
+  text-align: center;
+}
+.StoryPageTopTextWhite{
+  color: #EEE;
+}
+.StoryPageTopTextBlack{
+  color: var(--point-color1);
+}
+.StoryPageTopText{
+  color : #BBB;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.SubPageMiddleNav{
+  height: 100px;
+  background-color: white;
+}
+.MiddleNavWrap{
+  width: 1285px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.MiddleNavHamburger{
+  width: 40px;
+}
+.MiddleNavNext{
+  width: 12px;
+  margin: 0px 10px;
+}

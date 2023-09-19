@@ -6,10 +6,14 @@ import reportWebVitals from './reportWebVitals';
 
 import {BrowserRouter} from 'react-router-dom';
 
+/* 재 렌더링시 스크롤 Top */
+import ScrollToTop from './components/FunctionComponent/ScrollToTop';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode> /* 얘가있으면 2번실행되더라 */
     <BrowserRouter>
+      <ScrollToTop/>
       <App />
     </BrowserRouter>
   // </React.StrictMode>
