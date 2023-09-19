@@ -3,10 +3,16 @@
   height: 80px;
   width: 100%;
 }
+.Footer{
+  background: radial-gradient(rgba(0,0,0,0.8), rgb(0,0,0));
+}
 .FooterTop{
-  height: 100%;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid #333;
 }
 .FooterNavUl{
+  padding : 0px 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +21,134 @@
 .FooterNavLi{
   position: relative;
 }
+.FooterNavLi::after{
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: white;
+
+  right: 0;
+  top: 50%;
+
+  transform: translate(-50%,-50%);
+}
+.FooterNavLi:last-of-type::after{
+  display: none;
+}
 .FooterNavLink{
+  display: block;
   padding: 37px 35px;
+  color: #EEE;
+}
+.FooterSNSWrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 35px;
+
+  height: 180px;
+  margin: auto;
+}
+.FooterSNS{
+  width: 40px;
+}
+.FooterSNS img{
+  width: 100%;
+  opacity: 0.9;
+}
+
+.GameRegulatoryOrganizationWrap{
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.OrganizationImageWrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap : 40px;
+}
+
+.OrganizationImageWrap img{
+  height: 100px;
+}
+
+.OrganizationSpreadWrap{
+  /* width: 420px; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  background-color: #E5950E;
+  border-radius: 5px;
+}
+.OrganizationSpreadSet{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+
+}
+
+.OrganizationSpreadSet small{
+  color: #EEE;
+  text-align: center;
+  width: 100%;
+  font-weight: 100;
+}
+.OrganizationSpreadName{
+  border-right: 1px dashed #F2B23F;
+}
+.OrganizationSpreadText{
+  padding: 0px 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.GameDeveloper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  margin: auto;
+
+  gap: 40px;
+  height: 70px;
+}
+.GameDeveloper a{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.GameDeveloper a img{
+  height: 100%;
+}
+
+.FooterTextWrap{
+  margin-top: 60px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  padding-bottom: 130px;
+}
+
+.FooterSmallText{
+  color: var(--light-text-color1);
 }
