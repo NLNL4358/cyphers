@@ -21,7 +21,6 @@ const MapSection = () => {
           <button className='PointButton1 StoryButton'>
           <img className='StoryButtonHoverImage ButtonHoverImage' src="img/icon/buttonBack_black.png" alt="" /></button>
           <p className='PointButtonText_white'>전장(맵) 이해하기</p>
-          
         </div>
       </div>
     </div>

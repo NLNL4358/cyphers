@@ -36,7 +36,7 @@ const Footer = () => {
 
   return (
     <div className='FooterSection inner'>
-      <div className="FooterPadding"></div>
+      {/* <div className="FooterPadding"></div> */}
       <div className="Footer">
         <div className="FooterTop">
           {
@@ -55,14 +55,14 @@ const Footer = () => {
         </div>
         <div className="FooterMain">
           <div className="FooterSNSWrap">
-            <Link className='FooterSNS CyphersTwitterLink' to='https://twitter.com/cyp_joker'><img src="img/icon/twitter.png" alt="" /></Link>
-            <Link className='FooterSNS CyphersYoutubeLink' to='https://www.youtube.com/channel/UCrW3WvQdJIJ_dxUxtgou-3w'><img src="img/icon/youtube.png" alt="" /></Link>
-            <Link className='FooterSNS CyphersFaceBookLink' to='https://www.facebook.com/neople.joker/?locale=ko_KR'><img src="img/icon/facebook.png" alt="" /></Link>
+            <Link className='FooterSNS CyphersTwitterLink' to='https://twitter.com/cyp_joker'><img src="/img/icon/twitter.png" alt="" /></Link>
+            <Link className='FooterSNS CyphersYoutubeLink' to='https://www.youtube.com/channel/UCrW3WvQdJIJ_dxUxtgou-3w'><img src="/img/icon/youtube.png" alt="" /></Link>
+            <Link className='FooterSNS CyphersFaceBookLink' to='https://www.facebook.com/neople.joker/?locale=ko_KR'><img src="/img/icon/facebook.png" alt="" /></Link>
           </div>
           <div className="GameRegulatoryOrganizationWrap">
             <div className="OrganizationImageWrap">
-              <img src="img/icon/Korea_15.png" alt="" />
-              <img src="img/icon/Korea_violence_descriptor.png" alt="" />
+              <img src="/img/icon/Korea_15.png" alt="" />
+              <img src="/img/icon/Korea_violence_descriptor.png" alt="" />
             </div>
             <div className="OrganizationSpreadWrap">
               {
@@ -76,8 +76,8 @@ const Footer = () => {
             </div>
           </div>
           <div className="GameDeveloper">
-            <Link to=''><img src="img/icon/neopleSVG.svg" alt="" /></Link>
-            <Link to=''><img src="img/icon/nexonSVG.svg" alt="" /></Link>
+            <Link to=''><img src="/img/icon/neopleSVG.svg" alt="" /></Link>
+            <Link to=''><img src="/img/icon/nexonSVG.svg" alt="" /></Link>
           </div>
           <div className="FooterTextWrap">
             <small className='FooterSmallText'>

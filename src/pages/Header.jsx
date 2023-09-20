@@ -116,7 +116,8 @@ const Header = () => {
       <div className={`HeaderNexon ${headerScroll}`}>
         <div className="HeaderNexon_Left">
           <button className='HeaderNexon_Left_Button'>
-            <img src="img/icon/hamburger.png" alt="" />
+            {/* 메인과 이중라우트 두곳에서 모두 보이게하기위해 img의 경로 앞에 / 를 붙힌다 */}
+            <img src="/img/icon/hamburger.png" alt="" />
             <body>
               메뉴
             </body>
@@ -125,7 +126,7 @@ const Header = () => {
 
         <div className="HeaderNexon_Middle">
           <Link to="/">
-            <img src="img/logo/logo_nexon.png" alt="" />
+            <img src="/img/logo/logo_nexon.png" alt="" />
           </Link>
         </div>
 
@@ -152,7 +153,7 @@ const Header = () => {
           <div className="HeaderMainTop">
             <div className="LogoWrap">
               <Link to="/">
-                <img className="LogoImage" src="img/logo/cyphers_logo.png" alt="" />
+                <img className="LogoImage" src="/img/logo/cyphers_logo.png" alt="" />
               </Link>
             </div>
 
@@ -180,7 +181,7 @@ const Header = () => {
 
               <button className='HeaderGameStartButton'>
                 <h4 className='BlackOps PointColor1'>Game Start</h4>
-                <img src="img/icon/buttonBack_color.png" alt="" />
+                <img src="/img/icon/buttonBack_color.png" alt="" />
               </button>
             </div>
           </div>

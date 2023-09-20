@@ -6,6 +6,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  z-index: 50;
 }
 
 .HeaderNexon_Left{
@@ -144,6 +146,8 @@
   left: 0%;
   z-index: 10;
   background-color: rgba(0,0,0,0.7);
+  z-index: 50;
+
  }
  .HeaderMain.scrolled{
   position: fixed;

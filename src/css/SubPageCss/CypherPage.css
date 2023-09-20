@@ -1,0 +1,41 @@
+.CypherPageTop{
+  height: 570px;
+}
+.CypherPageTopWrap{
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.CypherPageBackgroundImage{
+  width: 100%;
+  position: absolute;
+  left: 0;
+ 
+  z-index: -5;
+}
+.CypherPageTopTextWrap{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+}
+.CypherPageTopTextWhite,.CypherPageTopTextColor{
+  font-size: 100px;
+  line-height: 100px;
+  font-weight: bold;
+  text-align: center;
+}
+.CypherPageTopTextWhite{
+  color: #EEE;
+}
+.CypherPageTopTextColor{
+  color: var(--point-color1);
+}
+.CypherPageTopText{
+  color : #BBB;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}

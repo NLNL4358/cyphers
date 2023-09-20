@@ -1,5 +1,5 @@
 .MapSection{
-  height: 965px;
+  height: calc(965px + 80px);
   background-color: black;
   position: relative;
 }

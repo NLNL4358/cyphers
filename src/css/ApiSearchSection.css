@@ -91,6 +91,7 @@
   padding-top : 5px;
   color : #808080;
   font-weight: bold;
+  font-size: var(--span-size);
 }
   .inputText::after{
     content: "";

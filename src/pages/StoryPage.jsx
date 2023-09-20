@@ -9,9 +9,9 @@ const StoryPage = () => {
       <StoryPageTop></StoryPageTop>
       <div className="SubPageMiddleNav">
         <div className="MiddleNavWrap">
-          <img className='MiddleNavHamburger' src="img/icon/hamburger.png" alt="" />
+          <img className='MiddleNavHamburger' src="/img/icon/hamburger.png" alt="" />
           <h4>게임정보</h4>
-          <img className='MiddleNavNext' src="img/icon/ico_arrow_his.png" alt="" />
+          <img className='MiddleNavNext' src="/img/icon/ico_arrow_his.png" alt="" />
           <h4 className='PointColor1'>세계관</h4>
         </div>
       </div>
