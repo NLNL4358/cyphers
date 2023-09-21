@@ -1,5 +1,5 @@
 .CypherPageTop{
-  height: 570px;
+  height: 564px;
 }
 .CypherPageTopWrap{
   height: 100%;
@@ -8,6 +8,7 @@
 }
 .CypherPageBackgroundImage{
   width: 100%;
+  /* height: 100%; */
   position: absolute;
   left: 0;
  
@@ -34,8 +35,184 @@
   color: var(--point-color1);
 }
 .CypherPageTopText{
-  color : #BBB;
+  color : #EEE;
   text-align: center;
   font-weight: bold;
   margin-top: 20px;
+  text-shadow:
+  -1px -1px 0 #333, /* 왼쪽 위 방향으로 그림자 */
+  1px -1px 0 #333,  /* 오른쪽 위 방향으로 그림자 */
+  -1px 1px 0 #333,  /* 왼쪽 아래 방향으로 그림자 */
+  1px 1px 0 #333;   /* 오른쪽 아래 방향으로 그림자 */
 }
+
+
+/* CypherPageMain */
+
+.CypherPageMain{
+  background-color: #292524;
+}
+
+.CyphersCharacterWrap{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin: auto;
+  padding: 75px 0px;
+}
+
+.CyphersCharacterRectWrap{
+  width: 200px;
+  margin-bottom: 30px;
+  position: relative;
+  cursor: pointer;
+}
+  .CyphersCharacterRectWrap::before, .CyphersCharacterRectWrap::after{
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-color: #292524;
+    transform: rotate(45deg);
+    z-index: 5;
+  }
+  .CyphersCharacterRectWrap::before{
+    left: -22.5px;
+    top: -22.5px;
+  }
+  .CyphersCharacterRectWrap::after{
+    right: -22.5px;
+    bottom: -22.5px;
+  }
+.CyphersCharacterImageWrap{
+  width: 200px;
+  height: 200px;
+}
+.CyphersCharacterImage{
+  width: 100%;
+  filter: grayscale(100%);
+  transition: 0.2s;
+}
+  .CyphersCharacterRectWrap:hover .CyphersCharacterImage{
+    filter: grayscale(0%); 
+  }
+
+.CyphersCharacterTextWrap{
+  width: 100%;
+  height: 65px;
+  background-color: #141414;
+  position: relative;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+  .CyphersCharacterRectWrap:hover .CyphersCharacterTextWrap{
+    opacity: 1.0;
+  }
+  .CyphersCharacterTextWrap::after{
+    position: absolute;
+    content: "";
+    width: 22px;
+    height: inherit;
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 35px;
+    top: 55%;
+    transform: translate(-50%,-20%);
+  }
+  .탱커 .CyphersCharacterTextWrap::after{
+    background-image: url("../../../public/img/icon/position_img_0.png")
+  }
+  .근거리딜러 .CyphersCharacterTextWrap::after{
+    background-image: url("../../../public/img/icon/position_img_1.png")
+  }
+  .원거리딜러 .CyphersCharacterTextWrap::after{
+    background-image: url("../../../public/img/icon/position_img_2.png")
+  }
+  .서포터 .CyphersCharacterTextWrap::after{
+    background-image: url("../../../public/img/icon/position_img_3.png")
+  }
+.CyphersCharacterName{
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translate(0%,-50%);
+  color: #BBB;
+}
+.CyphersCharacterPosition{
+  position: absolute;
+  top: 5px;
+  left: 45px;
+  transform: translate(-50%,0%);
+}
+  .탱커 .CyphersCharacterPosition{
+    color : #256FFF;
+  }
+  .근거리딜러 .CyphersCharacterPosition{
+    color : #E83B3B;
+  }
+  .원거리딜러 .CyphersCharacterPosition{
+    color : #974DF5;
+  }
+  .서포터 .CyphersCharacterPosition{
+    color : #FFA842;
+  }
+
+.CyphersCharacterCategoryWrap{
+  padding-top: 30px;
+}
+
+.CyphersCharacterCategoryWrap ul{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.CyphersCharacterCategoryWrap ul li{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.CyphersCharacterCategoryName{
+  min-width: 100px;
+  width: 100%;
+  padding: 10px 0px;
+  color: #BBB;
+  border-top: 5px solid #DDD;
+  border-bottom: 5px solid #DDD;
+}
+.CyphersCharacterCategoryTextWrap{
+  margin-top: 15px;
+  display: grid;
+  grid-auto-flow:column;
+  grid-template-rows: repeat(4, 1fr);
+}
+.CyphersCharacterCategoryTextWrap button{
+  padding : 7px 45px 7px 0px;
+  color: #BBB;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: var(--span-size);
+}
+.CyphersCharacterCategoryTextWrap button:hover{
+  color: #DDD;
+}
+
+  .position button.탱커:nth-of-type(1){
+    color : #256FFF;
+  }
+  .position button.근거리딜러:nth-of-type(2){
+    color : #E83B3B;
+  }
+  .position button.원거리딜러:nth-of-type(3){
+    color : #974DF5;
+  }
+  .position button.서포터:nth-of-type(4){
+    color : #FFA842;
+  }
+
+  .attackType button.근거리:nth-of-type(1){
+    color : #E83B3B;
+  }
+  .attackType button.원거리:nth-of-type(2){
+    color : #974DF5;
+  }

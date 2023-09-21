@@ -31,14 +31,19 @@
 .StoryPageTopTextWhite{
   color: #EEE;
 }
-.StoryPageTopTextBlack{
+.StoryPageTopTextColor{
   color: var(--point-color1);
 }
 .StoryPageTopText{
-  color : #BBB;
+  color : #EEE;
   text-align: center;
   font-weight: bold;
   margin-top: 20px;
+  text-shadow:
+  -1px -1px 0 #333, /* 왼쪽 위 방향으로 그림자 */
+  1px -1px 0 #333,  /* 오른쪽 위 방향으로 그림자 */
+  -1px 1px 0 #333,  /* 왼쪽 아래 방향으로 그림자 */
+  1px 1px 0 #333;   /* 오른쪽 아래 방향으로 그림자 */
 }
 
 .SubPageMiddleNav{

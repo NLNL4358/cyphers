@@ -16,7 +16,6 @@ const Header = () => {
     '커뮤니티',
     '고객센터'
   ];
-
   const snbList = [
     [
       '공지사항',
