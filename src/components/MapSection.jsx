@@ -16,7 +16,7 @@ const MapSection = () => {
         <h2 className='MapSubName'>결전의 장소, 그 속으로</h2>
         <h5 className='MapText'>사이퍼들의 승리를 위한 전략은<br></br>맵의 구조 지형물과 등장하는 기믹들에의해<br></br>매 순간 변화하고 팀원들과의 판단을 요구합니다.</h5>
 
-        <div onClick={()=>{navigate("/MapPage")}} className="PointButtonWrap">
+        <div className="PointButtonWrap">
           <div className='Point1_Outline'></div>
           <button className='PointButton1 StoryButton'>
           <img className='StoryButtonHoverImage ButtonHoverImage' src="img/icon/buttonBack_black.png" alt="" /></button>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom'
+import {Link , useNavigate} from 'react-router-dom'
 /* API Key 는 환경변수를 사용 process.env.REACT_APP_API_KEY */
 
 /* 
@@ -39,7 +39,7 @@ import {Link} from 'react-router-dom'
 import "../css/ApiSearchSection.css"
 
 const ApiSearchSection = (props) => {
-
+  const navigate = useNavigate();
   const userNameChange = (text) => {
     console.log("지금!!");
     props.setUserNickName(text);
@@ -113,6 +113,7 @@ const ApiSearchSection = (props) => {
 
         props.setUserPlayerId(playerId);
 
+        navigate("/UserRecord");
       }
 
       catch (error) {

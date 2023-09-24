@@ -19,7 +19,7 @@ import Footer from './pages/Footer';
 import HomePage from './pages/HomePage';
 import StoryPage from './pages/StoryPage';
 import CypherPage from './pages/CypherPage';
-import MapPage from './pages/MapPage';
+import UserRecord from './pages/UserRecord';
 function App() {
 
 
@@ -70,7 +70,7 @@ function App() {
     if(userMatchData == ""){
       return;
     }
-    console.log(userMatchData);
+    console.log("userMatchData : "+ userMatchData);
   })
 
   
@@ -129,8 +129,9 @@ function App() {
         {/* 사이퍼 */}
         <Route path='/CypherPage' element={<CypherPage></CypherPage>}></Route>
 
-        {/* 맵 */}
-        <Route path='/MapPage' element={<MapPage></MapPage>}></Route>
+
+        {/* 전적검색 */}
+        <Route path='/UserRecord' element={<UserRecord userNickName={userNickName} setUserNickName={(name)=>{setUserNickName(name)}} gameType={gameType} setGameType={(Type)=>{setGameType(Type)}} userPlayerId={userPlayerId} setUserPlayerId={(Id)=>{setUserPlayerId(Id)}} userMatchData={userMatchData} setUserMatchData={(Data)=>{setUserMatchData(Data)}}></UserRecord>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
