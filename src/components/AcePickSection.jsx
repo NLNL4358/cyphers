@@ -63,7 +63,7 @@ const AcePickSection = () => {
         {
           /* 객체를 배열로 만들었기에 map을 사용할 수 있게된다. */
           AceContentsArray.map((item, index)=>(
-            <Link to="/">
+            <Link key={index} to="/">
               <div className={`AceContentsWrap ${index}`}>
                 <div className="AceContentsImageWrap">
                   <img className='AceContentsImage' src={item.imgUrl} alt="" />

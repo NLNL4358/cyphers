@@ -78,7 +78,7 @@ const StoryPageMain = () => {
         <div className="SelectTargetStoryButtonWrap">
           {
             StoryName.map((item,index)=>(
-              <button onClick={()=>{ChangeStoryPage(index)}} id={`${item + "Button"}`} className={`BlackOps ${item + "Button"} StoryTargetButton ${targetButton[index]}`}>
+              <button key={index} onClick={()=>{ChangeStoryPage(index)}} id={`${item + "Button"}`} className={`BlackOps ${item + "Button"} StoryTargetButton ${targetButton[index]}`}>
                 {item}
               </button>
             ))
@@ -92,7 +92,7 @@ const StoryPageMain = () => {
               <div className="StoryPageContentColumWrap">
                 {
                   StoryColum.Eclipse.map((item,index)=>(
-                    <Link className={`StoryPageContentColum ${index}`}>{item}</Link>
+                    <Link key={index} className={`StoryPageContentColum ${index}`}>{item}</Link>
                   ))
                 }
               </div>
@@ -105,7 +105,7 @@ const StoryPageMain = () => {
               <div className="StoryPageContentColumWrap">
                 {
                   StoryColum.SuperMoon.map((item,index)=>(
-                    <Link className={`StoryPageContentColum ${index}`}>{item}</Link>
+                    <Link key={index} className={`StoryPageContentColum ${index}`}>{item}</Link>
                   ))
                 }
               </div>
@@ -118,7 +118,7 @@ const StoryPageMain = () => {
               <div className="StoryPageContentColumWrap">
                 {
                   StoryColum.BlueBoon.map((item,index)=>(
-                    <Link className={`StoryPageContentColum ${index}`}>{item}</Link>
+                    <Link key={index} className={`StoryPageContentColum ${index}`}>{item}</Link>
                   ))
                 }
               </div>

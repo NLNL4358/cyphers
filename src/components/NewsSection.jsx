@@ -101,7 +101,7 @@ const NewsSection = () => {
           <div className="CyphersNewsAndMagazineContentsWrap">
             {
               magazineImageUrls.map((item, index)=>(
-                <Link className='CyphersNewsAndMagazineContentsLink' to='/'>
+                <Link key={index} className='CyphersNewsAndMagazineContentsLink' to='/'>
                   <div className="CyphersNewsAndMagazineContents" style={{backgroundImage : `url(${item})`}}>
                     <div className="NewsAndMagazineConceptWrap">
                       {magazineConceptName[index]}
@@ -125,7 +125,7 @@ const NewsSection = () => {
           <div className="CyphersNewsAndMagazineContentsWrap">
             {
               newsImageUrls.map((item, index)=>(
-                <Link className='CyphersNewsAndMagazineContentsLink' to='/'>
+                <Link key={index} className='CyphersNewsAndMagazineContentsLink' to='/'>
                   <div className="CyphersNewsAndMagazineContents" style={{backgroundImage : `url(${item})`}}>
                     <div className="NewsAndMagazineConceptWrap"></div>
                     {newsInnerText[index]}

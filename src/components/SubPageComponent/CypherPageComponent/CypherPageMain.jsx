@@ -198,7 +198,7 @@ const CypherPageMain = () => {
             (typeTag === 'All' || CharacterTypeArrayExport[index] === typeTag))
             {
               return(
-                <div className={`CyphersCharacterRectWrap ${CharacterTypeArrayExport[index]} ${CharacterPositionArrayExport[index]} ${item.characterName}`}>
+                <div key={index} className={`CyphersCharacterRectWrap ${CharacterTypeArrayExport[index]} ${CharacterPositionArrayExport[index]} ${item.characterName}`}>
                 <div className="CyphersCharacterImageWrap">
                   <img className="CyphersCharacterImage" src={`https://img-api.neople.co.kr/cy/characters/${item.characterId}?zoom=3`} alt="" />
                 </div>

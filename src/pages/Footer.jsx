@@ -43,7 +43,7 @@ const Footer = () => {
             <ul className='FooterNavUl contents_inner'>
               {
                 FooterNavText.map((item,index)=>(
-                  <li className={`FooterNavLi ${index}`}>
+                  <li key={index} className={`FooterNavLi ${index}`}>
                     <Link className={`FooterNavLink ${index}`} to=''>
                       {item}
                     </Link>
@@ -67,7 +67,7 @@ const Footer = () => {
             <div className="OrganizationSpreadWrap">
               {
                 OrganizationSpreadName.map((item, index)=>(
-                  <div className="OrganizationSpreadSet">
+                  <div key={index} className="OrganizationSpreadSet">
                     <small className='OrganizationSpreadName'>{item}</small>
                     <small className='OrganizationSpreadText'>{OrganizationSpreadText[index]}</small>
                   </div>

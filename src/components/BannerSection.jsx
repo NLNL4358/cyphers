@@ -44,7 +44,7 @@ const BannerSection = () => {
       >
         {
           SlidesUrl.map((item,index)=>(
-            <SwiperSlide className='CyphersBannerSlide'>
+            <SwiperSlide key={index} className='CyphersBannerSlide'>
               <Link to="/">
                 <img className='CyphersBannerImage' src={item} alt={`slideNumber ${index}`} />
               </Link>

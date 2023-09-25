@@ -160,7 +160,7 @@ const Header = () => {
               <ul className='GnbUl'>
                 {
                   gnbList.map((item, index)=>(
-                    <li className={`GnbLi ${index}`}>
+                    <li key={index} className={`GnbLi ${index}`}>
                       <Link>
                         <p>
                           {item}
@@ -189,10 +189,10 @@ const Header = () => {
               <ul className='SnbUl' onMouseOver={gnbMouseOver} onMouseOut={gnbMouseOut}>
                 {
                   snbList.map((item, index)=>(
-                    <li className={`SnbLi ${index}`}>
+                    <li key={index} className={`SnbLi ${index}`}>
                       {
                         item.map((item, index)=>(
-                          <Link className='SnbText'>
+                          <Link key={index} className='SnbText'>
                             {item}
                           </Link>
                         ))

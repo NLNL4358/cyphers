@@ -30,11 +30,11 @@ function App() {
     3. 사용자 닉네임으로 받은 사용자 playerId;
     4. 사용자 닉네임검색 으로 받은 매칭정보
   */
-  const [userNickName, setUserNickName] = useState(""); /* 유저 닉네임 */
+  const [userNickName, setUserNickName] = useState(()=> JSON.parse(window.localStorage.getItem("userNickName")) || ""); /* 유저 닉네임 */
 
-  const [gameType, setGameType] = useState("rating"); /* 매칭 타입 */
+  const [gameType, setGameType] = useState(()=>JSON.parse(window.localStorage.getItem("gameType")) || "rating"); /* 매칭 타입 */
   
-  const [userPlayerId, setUserPlayerId] = useState(""); /* 플레이어 ID */
+  const [userPlayerId, setUserPlayerId] = useState(()=>JSON.parse(window.localStorage.getItem("userPlayerId")) || ""); /* 플레이어 ID */
 
   const [userMatchData, setUserMatchData] = useState(""); /* 플레이어 매칭 데이터 */
 
@@ -43,6 +43,7 @@ function App() {
       return;
     }
     console.log("userNameChanged : ", userNickName);
+    window.localStorage.setItem("userNickName", JSON.stringify(userNickName));
   },[userNickName]);
 
 
@@ -55,6 +56,9 @@ function App() {
 
   },[])
 
+  useEffect(()=>{
+    window.localStorage.setItem("gameType", JSON.stringify(gameType));
+  },[gameType])
   
   useEffect(()=>{
     if(userPlayerId==""){
@@ -62,56 +66,58 @@ function App() {
     }
     /* PlayerId 입력됨 */
     console.log("userPlayerId : ",userPlayerId);
-
-    getMatch();
-  },[userPlayerId])
+    window.localStorage.setItem("userPlayerId", JSON.stringify(userPlayerId));
+    // getMatch();
+  },[userPlayerId]);
 
   useEffect(()=>{
     if(userMatchData == ""){
       return;
     }
-    console.log("userMatchData : "+ userMatchData);
-  })
+    console.log(userMatchData);
+  },[userMatchData]);
 
   
   /* Netlify 호스팅을 위한 세팅 */
   const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 
 
-  /* 매치 검색 */
-  const getMatch = async () => {
+  // /* 매치 검색 */
+  // const getMatch = async () => {
 
-    /* 시간 (<startDate> , <endDate>) 이 꼭 필요하다!! */
-    let currentDay = new Date();
-    let dateFormat1 = currentDay.getFullYear() + "-" + ( (currentDay.getMonth()) < 9 ? "0" + (currentDay.getMonth()+1) : (currentDay.getMonth()+1) ) + "-" + ( (currentDay.getDate()) < 9 ? "0" + (currentDay.getDate()) : (currentDay.getDate()) ) +" "+ (currentDay.getHours())+":"+(currentDay.getMinutes());
-    let threeMonthAgo = new Date(currentDay.setMonth(currentDay.getMonth() - 2));
-    let dateFormat2 = threeMonthAgo.getFullYear() + "-" +  ( (threeMonthAgo.getMonth()) < 9 ? "0" + (threeMonthAgo.getMonth()+1) : (threeMonthAgo.getMonth()+1) ) + "-" + ( (threeMonthAgo.getDate()) < 9 ? "0" + (threeMonthAgo.getDate()) : (threeMonthAgo.getDate()) ) +" "+ (currentDay.getHours())+":"+(currentDay.getMinutes()+1);
+  //   /* 시간 (<startDate> , <endDate>) 이 꼭 필요하다!! */
+  //   let currentDay = new Date();
+  //   let dateFormat1 = currentDay.getFullYear() + "-" + ( (currentDay.getMonth()) < 9 ? "0" + (currentDay.getMonth()+1) : (currentDay.getMonth()+1) ) + "-" + ( (currentDay.getDate()) < 9 ? "0" + (currentDay.getDate()) : (currentDay.getDate()) ) +" "+ (currentDay.getHours())+":"+(currentDay.getMinutes());
+  //   let threeMonthAgo = new Date(currentDay.setMonth(currentDay.getMonth() - 2));
+  //   let dateFormat2 = threeMonthAgo.getFullYear() + "-" +  ( (threeMonthAgo.getMonth()) < 9 ? "0" + (threeMonthAgo.getMonth()+1) : (threeMonthAgo.getMonth()+1) ) + "-" + ( (threeMonthAgo.getDate()) < 9 ? "0" + (threeMonthAgo.getDate()) : (threeMonthAgo.getDate()) ) +" "+ (currentDay.getHours())+":"+(currentDay.getMinutes()+1);
 
 
-    /* Netlify 호스팅을 위한 세팅 */
-    const url = `${PROXY}/players/${userPlayerId}/matches?gameTypeId=${gameType}&startDate=${dateFormat2}&endDate=${dateFormat1}&limit=100&apikey=${process.env.REACT_APP_API_KEY}`;
+  //   /* Netlify 호스팅을 위한 세팅 */
+  //   const url = `${PROXY}/players/${userPlayerId}/matches?gameTypeId=${gameType}&startDate=${dateFormat2}&endDate=${dateFormat1}&limit=100&apikey=${process.env.REACT_APP_API_KEY}`;
 
-    try{
-      const response = await fetch(url);
-      if(!response.ok){
-        throw new Error("Network response was not ok");
-      }
+  //   try{
+  //     const response = await fetch(url);
+  //     if(!response.ok){
+  //       throw new Error("Network response was not ok");
+  //     }
 
-      const data = await response.json();
+  //     const data = await response.json();
 
-      let gameIndex = 0;  /* 공식이면 0 , 일반이면 1 */
-      if(gameType == "normal"){
-        gameIndex = 1;
-      }
-      /* data.records[0 or 1].winCount or LoseCount or stopCount */
-      const MatchData = await data;
-      setUserMatchData(MatchData);
-    }
+  //     let gameIndex = 0;  /* 공식이면 0 , 일반이면 1 */
+  //     if(gameType == "normal"){
+  //       gameIndex = 1;
+  //     }
+  //     /* data.records[0 or 1].winCount or LoseCount or stopCount */
+  //     const MatchData = await data;
 
-    catch(error){
-      console.log("An error occurred:", error.message);
-    }
-  }
+  //     /* UserRecord로 가기전에 완료하고 가야하기때문에 await를 걸어줌 */
+  //     await setUserMatchData(MatchData);
+  //   }
+
+  //   catch(error){
+  //     console.log("An error occurred:", error.message);
+  //   }
+  // }
 
 
   return (
