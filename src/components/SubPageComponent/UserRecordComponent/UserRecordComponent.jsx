@@ -44,6 +44,10 @@ import position from '../CypherPageComponent/CharacterPosition';
 const UserRecordComponent = (props) => {
 
   const [positionType, setPositionType] = useState(0);
+
+  /* 매칭 디테일을 위한 매치ID로 API 호출을 위한 useState */
+  const [matchDetailData, setMatchDetailData] = useState("");
+
   /* matchesRow가 준비되면! useState를 바꿔줘라 */
   useEffect(()=>{
     switch(props.matchesRow.position.name){
@@ -60,7 +64,30 @@ const UserRecordComponent = (props) => {
         setPositionType(3);
         break;
     }
+    /* props가 제대로 들어왔다면 매치ID를 이용해 매치데이터 가져온다 */
+    getMatchDetailData();
   },[props.matchesRow])
+
+  /* Netlify 호스팅을 위한 세팅 */
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+
+  const getMatchDetailData = async () => {
+    const url = `${PROXY}/matches/${props.matchesRow.matchId}?&apikey=${process.env.REACT_APP_API_KEY}`
+
+    try{
+      const response = await fetch(url);
+      if(!response.ok){
+        throw new Error("Network response was not ok");
+      }
+
+      const detailData = await response.json();
+
+      await setMatchDetailData(detailData);
+    }
+    catch(error){
+      console.log("An error occurred:", error.message);
+    }
+  }
 
   const howManyParty = () =>{
     switch(props.matchesRow.playInfo.partyInfo.length+1){
@@ -102,7 +129,7 @@ const UserRecordComponent = (props) => {
           <div className="imageAndTextWrap">
             <img className='recordPlayedCharacterImage' src={`https://img-api.neople.co.kr/cy/characters/${props.matchesRow.playInfo.characterId}/?zoom=3`} alt="" />
             <div className="levelKillDeathTextWrap">
-              <body className='recordPlayedCharactersLevel'>{props.matchesRow.playInfo.level} Level</body>
+              <span className='recordPlayedCharactersLevel'>{props.matchesRow.playInfo.level} Level</span>
               <p className='recordPlayedCharactersKillDeath'><bold>{props.matchesRow.playInfo.killCount}</bold> / <bold>{props.matchesRow.playInfo.deathCount}</bold> / <bold>{props.matchesRow.playInfo.assistCount}</bold></p>
               <body className='recordPlayedCharactersScore'>
                 {
@@ -141,9 +168,20 @@ const UserRecordComponent = (props) => {
                 </div>
               </div>
             )
-
           }
-          
+        </div>
+
+        <div className="recordPlayerScoreWrap">
+          <body className='recordPlayerScore coinScore'>획득 코인 : {props.matchesRow.playInfo.getCoin}</body>
+          <body className='recordPlayerScore attackPointScore'>가한 피해량 : {props.matchesRow.playInfo.attackPoint}</body>
+          <body className='recordPlayerScore damagedPointScore'>받은 피해량 : {props.matchesRow.playInfo.damagePoint}</body>
+          <body className='recordPlayerScore sightScore'>시야 점수 : {props.matchesRow.playInfo.sightPoint}</body>
+        </div>
+
+        <div className="recordMatchMembersWrap">
+          <div className="matchMember">
+            
+          </div>
         </div>
       </div>
     </div>

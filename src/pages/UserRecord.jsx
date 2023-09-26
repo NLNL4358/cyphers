@@ -221,7 +221,7 @@ const UserRecord = (props) => {
         <div className="userRecordMainRecordWrap">
           
           <h5>전투 기록
-            <small className='recordNotice'>(전적은 최장 3개월, 최대 100전의 기록만 열람 가능합니다.)</small>
+            <small className='recordNotice'>(전적은 최대 3개월, 100전의 기록만 열람 가능합니다.)</small>
           </h5>
           {
             props.userMatchData.matches && props.userMatchData.matches.rows.map((item, index)=>(
