@@ -57,6 +57,7 @@ function App() {
   },[])
 
   useEffect(()=>{
+    console.log("gameType : " , gameType);
     window.localStorage.setItem("gameType", JSON.stringify(gameType));
   },[gameType])
   

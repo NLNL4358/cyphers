@@ -56,6 +56,23 @@ const CypherPageMain = () => {
     try{
       const response = await fetch(url);
       if(!response.ok){
+        switch(response.status){
+          case 400:
+            alert("필수 작성요소가 부족합니다. 파라미터 에러");
+            break;
+          case 401:
+            alert("인증 오류");
+            break;
+          case 404:
+            alert("유효하지 않는 플레이어 정보입니다.");
+            break;
+          case 500:
+            alert("시스템 오류");
+            break;
+          case 503:
+            alert("현재 사이퍼즈 점검 중 입니다.");
+            break;
+        }
         throw new Error("Network response was not ok");
       };
       const data = await response.json();

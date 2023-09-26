@@ -162,6 +162,13 @@ const UserRecord = (props) => {
       setNormalWiningPercent((((props.userMatchData.records[1].winCount)/(props.userMatchData.records[1].winCount + props.userMatchData.records[1].loseCount + props.userMatchData.records[1].stopCount))*100).toFixed(2));
     }
   }
+  /* morePage는 0 -> 9 까지 늘어나며 10개씩 컴포넌트를 보여주는 용 */
+  const [morePage, setMorePage] = useState(0);
+
+  const seeMorePage = () =>{
+    setMorePage(morePage+1);
+  }
+
   return (
     <div className='UserRecord inner'>
       <div className="userRecordTopSpace"></div>
@@ -212,13 +219,24 @@ const UserRecord = (props) => {
           <h5>Most 사이퍼</h5>
         </div>
         <div className="userRecordMainRecordWrap">
-          <h5>전투 기록</h5>
+          
+          <h5>전투 기록
+            <small className='recordNotice'>(전적은 최장 3개월, 최대 100전의 기록만 열람 가능합니다.)</small>
+          </h5>
           {
             props.userMatchData.matches && props.userMatchData.matches.rows.map((item, index)=>(
+              /* index를 10으로 나눈 정수값이 morePage보다 크다면? null, 작다면? return하라 라는뜻,
+              즉, moreRecordButton 버튼을 클릭하면 morePage가 1씩 늘어나니까 10개씩 더 보여주겠다. */
               /* parseInt 는 실수 -> 정수 형태변환 */
-              <UserRecordComponent className={`UserRecordComponent ${parseInt(index/25)}page`}></UserRecordComponent>
+              parseInt(index/10) > morePage ? null : 
+              <UserRecordComponent key={index} className={`UserRecordComponent ${parseInt(index/10)}page`} matchData={props.userMatchData} matchesRow={props.userMatchData.matches.rows[index]} gameType = {props.gameType}></UserRecordComponent>
             ))
           }
+          {
+            /* morePage가 10보다 크면 즉, 100개를 넘어가면 사라지고 아니면 나타나라 */
+            morePage >= 10 ? null : <button className='moreRecordButton' onClick={()=>{seeMorePage()}}> 전적 결과 더보기 </button>
+          }
+
         </div>
       </div>
     </div>
