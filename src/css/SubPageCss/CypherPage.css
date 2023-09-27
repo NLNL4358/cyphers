@@ -140,8 +140,8 @@
 .CyphersCharacterPosition{
   position: absolute;
   top: 5px;
-  left: 45px;
-  transform: translate(-50%,0%);
+  left: 30px;
+  transform: translate(-33%,0%);
 }
   .탱커 .CyphersCharacterPosition{
     color : #256FFF;

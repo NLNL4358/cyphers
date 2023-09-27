@@ -43,11 +43,19 @@ import position from '../CypherPageComponent/CharacterPosition';
 /* props로 받는 데이터 className , userMatchData , matchesRow, gameType*/
 const UserRecordComponent = (props) => {
 
+
+                      /* useState */
   const [positionType, setPositionType] = useState(0);
 
   /* 매칭 디테일을 위한 매치ID로 API 호출을 위한 useState */
   const [matchDetailData, setMatchDetailData] = useState("");
 
+  const [matchWinUser, setMatchWinUser] = useState([]); /* 승자 playerID * 5 */
+  const [matchLoseUser, setMatchLoseUser] = useState([]); /* 패자 playerID * 5 */
+
+
+
+                      /*  useEffect */
   /* matchesRow가 준비되면! useState를 바꿔줘라 */
   useEffect(()=>{
     switch(props.matchesRow.position.name){
@@ -67,6 +75,30 @@ const UserRecordComponent = (props) => {
     /* props가 제대로 들어왔다면 매치ID를 이용해 매치데이터 가져온다 */
     getMatchDetailData();
   },[props.matchesRow])
+
+
+  /* MatchDetailData가 완성되었다면 승리한 유저, 패배한 유저 useState채우기 */
+  useEffect(()=>{
+    if(matchDetailData == ""){
+      return;
+    }
+    whoIsWinTeam(0, matchDetailData.teams[0].players);
+    whoIsWinTeam(1, matchDetailData.teams[1].players);
+  },[matchDetailData])
+
+
+                            /* function */
+  const whoIsWinTeam = (index, array) => {
+    if(index){
+      /* 1 패자array */
+      setMatchLoseUser(array);
+      return;
+    }
+    else{
+      /* 0 승자array */
+      setMatchWinUser(array);
+    }
+  }
 
   /* Netlify 호스팅을 위한 세팅 */
   const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
@@ -104,14 +136,18 @@ const UserRecordComponent = (props) => {
     }
   }
 
+
+  const changeUserPlayerId = (Id) => {
+    props.setUserPlayerId(Id);
+  }
+
   return (
     <div className={props.className}>
       <div className={`userRecordComponentContentsWrap ${props.matchesRow.playInfo.result}`} >
         <div className="recordContentLeftTextWrap">
           <h4>
             {
-              props.matchesRow.playInfo.result === "stop" ? "중단" : 
-                props.matchesRow.playInfo.result === "win" ? "승리" : "패배"
+              props.matchesRow.playInfo.result === "win" ? "승리" : "패배"
             }
           </h4>
           <body>
@@ -133,7 +169,8 @@ const UserRecordComponent = (props) => {
               <p className='recordPlayedCharactersKillDeath'><bold>{props.matchesRow.playInfo.killCount}</bold> / <bold>{props.matchesRow.playInfo.deathCount}</bold> / <bold>{props.matchesRow.playInfo.assistCount}</bold></p>
               <body className='recordPlayedCharactersScore'>
                 {
-                  "KDA " + ((props.matchesRow.playInfo.killCount + props.matchesRow.playInfo.assistCount) / (props.matchesRow.playInfo.deathCount)).toFixed(1) 
+                  props.matchesRow.playInfo.deathCount == 0 ? "KDA Perfect" :
+                  "KDA " +  ((props.matchesRow.playInfo.killCount + props.matchesRow.playInfo.assistCount) / (props.matchesRow.playInfo.deathCount)).toFixed(1) 
                 }
               </body>
             </div>
@@ -172,15 +209,44 @@ const UserRecordComponent = (props) => {
         </div>
 
         <div className="recordPlayerScoreWrap">
-          <body className='recordPlayerScore coinScore'>획득 코인 : {props.matchesRow.playInfo.getCoin}</body>
-          <body className='recordPlayerScore attackPointScore'>가한 피해량 : {props.matchesRow.playInfo.attackPoint}</body>
-          <body className='recordPlayerScore damagedPointScore'>받은 피해량 : {props.matchesRow.playInfo.damagePoint}</body>
-          <body className='recordPlayerScore sightScore'>시야 점수 : {props.matchesRow.playInfo.sightPoint}</body>
+          <span className='recordPlayerScore coinScore'>획득 코인 : {props.matchesRow.playInfo.getCoin}</span>
+          <span className='recordPlayerScore attackPointScore'>가한 피해량 : {props.matchesRow.playInfo.attackPoint}</span>
+          <span className='recordPlayerScore damagedPointScore'>받은 피해량 : {props.matchesRow.playInfo.damagePoint}</span>
+          <span className='recordPlayerScore sightScore'>시야 점수 : {props.matchesRow.playInfo.sightPoint}</span>
         </div>
 
         <div className="recordMatchMembersWrap">
-          <div className="matchMember">
-            
+          <div className="recordMatchWinMemberWrap">
+            {
+              /* matchWinUser 가 있을때 동작해야겠지 && 를 이용하자 */
+              matchWinUser && matchWinUser.map((itemP, indexP)=>(
+                /* 승자의 Id 와 matchDetailData의 item.playerId가 일치할때 캐릭터 이미지, 닉네임을 보여주자 다르다면 null*/
+                matchDetailData && matchDetailData.players.map((item,index)=>(
+                    itemP != item.playerId ? null : 
+                      <div key={index} className="recordMatchWinMember" onClick={()=>{changeUserPlayerId(item.playerId)}}>
+                        <img className='recordMatchMembersCharacterImage' src={`https://img-api.neople.co.kr/cy/characters/${item.playInfo.characterId}?zoom=2`} alt="" />
+                        <div className={`recordMatchMembersPositionImage ${item.position.name}`}></div>
+                        <small className={ props.matchData.playerId == item.playerId ? `recordMatchMembersName targetPlayer` : 'recordMatchMembersName'}>{ item.nickname == null ? "알수없는 닉네임" : item.nickname}</small>
+                      </div>
+                  ))
+              ))
+            }
+          </div>
+          <div className="recordMatchLoseMemberWrap">
+            {
+              /* matchWinUser 가 있을때 동작해야겠지 && 를 이용하자 */
+              matchLoseUser && matchLoseUser.map((itemP, indexP)=>(
+                /* 승자의 Id 와 matchDetailData의 item.playerId가 일치할때 캐릭터 이미지, 닉네임을 보여주자 다르다면 null*/
+                matchDetailData && matchDetailData.players.map((item,index)=>(
+                    itemP != item.playerId ? null : 
+                      <div key={index} className="recordMatchLoseMember" onClick={()=>{changeUserPlayerId(item.playerId)}}>
+                        <img className='recordMatchMembersCharacterImage' src={`https://img-api.neople.co.kr/cy/characters/${item.playInfo.characterId}?zoom=2`} alt="" />
+                        <div className={`recordMatchMembersPositionImage ${item.position.name}`}></div>
+                        <small className={ props.matchData.playerId == item.playerId ? `recordMatchMembersName targetPlayer` : 'recordMatchMembersName'}>{ item.nickname == null ? "알수없는 닉네임" : item.nickname}</small>
+                      </div>
+                  ))
+              ))
+            }
           </div>
         </div>
       </div>

@@ -127,15 +127,68 @@
   width: 1160px;
   padding: 40px 0px 0px 40px;
 }
-.userRecordMainRecordWrap h5{
+.userRecordMainRecordWrapName{
   color: #DDD;
-  margin-bottom: 30px;
   font-weight: bold;
 }
 .recordNotice{
   color: #BBB;
-  margin-left: 5px;
+  margin-left: 7px;
 }
+.recordNotice2{
+  color: #BBB;
+  display: block;
+  text-align: right;
+}
+
+.gameTypeChangeButtonWrap{
+  width: 88px;
+  height: 30px;
+  position: relative;
+  background-color: #6F6F8E;
+  border-radius: 30px ;
+  margin-top: 10px;
+
+  cursor: pointer;
+}
+.gameTypeButtonCircle{
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: white;
+  top: 2px;
+
+  transition: 0.3s;
+}
+  .rating .gameTypeButtonCircle{
+    left: 3px;
+  }
+  .normal .gameTypeButtonCircle{
+    left : 60px;
+  }
+.gameTypeRatingText, .gameTypeNormalText{
+  /* font-weight: bold; */
+  pointer-events: none;
+  color: white;
+  position: absolute;
+  top: 7px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.gameTypeRatingText{
+  right: 15px;
+}
+.gameTypeNormalText{
+  left : 15px;
+}
+  .rating .gameTypeRatingText{
+    opacity: 1;
+  }
+  .normal .gameTypeNormalText{
+    opacity: 1;
+  }
+
 .moreRecordButton{
   width: 100%;
   height: 60px;
@@ -208,6 +261,8 @@
 .recordContentLeftTextWrap body{
   color: #BBB;
   margin-bottom: 5px;
+  width: 100px;
+  text-align: center;
 }
 .dotLine{
   width: 100%;
@@ -227,6 +282,7 @@
 .recordMapName, .recordTime{
   color: #BBB;
   text-align: center;
+  width: 200px;
 }
 
 .recordPlayInfoWrap{
@@ -270,6 +326,12 @@
   height: 100px;
   border-radius: 50%;
 }
+  .win .recordPlayedCharacterImage{
+    border: 2px solid #5383E8;
+  }
+  .lose .recordPlayedCharacterImage{
+    border: 2px solid #FF3A3A;
+  }
 .recordPlayedPositionImage{
   height: 33px;
   width: inherit;
@@ -335,7 +397,7 @@
 }
 
 .recordPlayerScoreWrap{
-  margin-left: 135px;
+  margin-left: 100px;
   position: relative;
 
   display: flex;
@@ -350,10 +412,110 @@
     width: 1px;
     height: 100%;
     border-left: 1px dotted #BBB;
-    left: -68px;
+    left: -50px;
     top: 0;
   }
 
-.recordPlayerScoreWrap body{
+.recordPlayerScoreWrap span{
   color: #DDD;
+  font-size: var(--body-size);
+}
+
+
+
+.recordMatchMembersWrap{
+  margin-left: auto;
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recordMatchWinMemberWrap, .recordMatchLoseMemberWrap{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+
+  position: relative;
+}
+
+.recordMatchWinMember, .recordMatchLoseMember{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+  .recordMatchWinMemberWrap::before, .recordMatchLoseMemberWrap::before{
+    position: absolute;
+    font-family: 'Black Ops One', cursive;
+    color: #FFF;
+    font-size: 21px;
+    left: -10px;
+    top: 45%;
+    transform: translate(-100%,-50%);
+  }
+  .recordMatchWinMemberWrap::before{
+    content: "WIN";
+  }
+  .recordMatchLoseMemberWrap::before{
+    content: "LOSE";
+  }
+
+.recordMatchMembersCharacterImage{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.recordMatchMembersPositionImage{
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  position: absolute;
+  right: -6px;
+  top: 35px;
+
+}
+  .recordMatchMembersPositionImage.탱커{
+    background-image: url("../../../public/img/icon/position_img_0.png");
+  }
+  .recordMatchMembersPositionImage.근거리딜러{
+    background-image: url("../../../public/img/icon/position_img_1.png");
+  }
+  .recordMatchMembersPositionImage.원거리딜러{
+    background-image: url("../../../public/img/icon/position_img_2.png");
+  }
+  .recordMatchMembersPositionImage.서포터{
+    background-image: url("../../../public/img/icon/position_img_3.png");
+  }
+
+
+.recordMatchMembersName{
+  margin-top: 5px;
+  width: 50px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color : #BBB;
+  font-size: 7px;
+  text-align: center;
+}
+.recordMatchWinMember .recordMatchMembersCharacterImage{
+  border: 2px solid #5383E8;
+}
+.recordMatchLoseMember .recordMatchMembersCharacterImage{
+  border: 2px solid #FF3A3A;
+}
+
+.recordMatchMembersName.targetPlayer{
+  color : #FFF;
+
 }
