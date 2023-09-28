@@ -113,14 +113,19 @@
 
   background-color: #31313C;
 }
-.userRecordMainMostCyperWrap{
+.userRecordMainRankingWrap{
   width: 440px;
-  height: 800px;
-  padding: 40px;
+  padding: 40px 20px;
 }
-.userRecordMainMostCyperWrap h5{
+.userRecordMainRankingWrap h5{
   color: #DDD;
   font-weight: bold;
+  margin-bottom: 25px;
+}
+.userRecordMainRankingInner{
+  background-color: #44444E;
+  padding: 30px 15px;
+  border-radius: 15px;
 }
 
 .userRecordMainRecordWrap{
@@ -518,4 +523,43 @@
 .recordMatchMembersName.targetPlayer{
   color : #FFF;
 
+}
+
+
+
+
+/* ranking */
+.userRecordMainRankingWrap span{
+  color: #EEE;
+}
+
+.differenceOfRank{
+  position: relative;
+  font-size: var(--small-size);
+}
+  .differenceOfRank.rankUp{
+    color: #FF3A3A;
+  }
+  .differenceOfRank.rankDown{
+    color: #5383E8;
+  }
+
+.usersRankingContents{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-bottom: 15px;
+}
+
+.userRepresentCharImgInRank{
+  width: 25px;
+  height: 25px;
+}
+
+.userRecordRankingDivideDot{
+  width: 345px;
+  margin: 30px auto;
+  height: 0px;
+  border-top: 1px dotted white;
 }

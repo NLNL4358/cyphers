@@ -51,7 +51,7 @@ const UserRecord = (props) => {
 
   useEffect(()=>{
     getMatch();
-
+    getRank();
   },[])
 
   useEffect(()=>{
@@ -71,7 +71,7 @@ const UserRecord = (props) => {
       return;
     }
     getMatch();
-
+    getRank();
     /* 자연스럽게 바뀌도록 스크롤 탑 && 0.5초 후 page 0으로만들기 */
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(()=>{setMorePage(0);},500);
@@ -120,6 +120,29 @@ const UserRecord = (props) => {
     }
   }
 
+  /* 랭킹 검색 */
+  const getRank = async () => {
+    const targetUserUrl = `${PROXY}/ranking/ratingpoint?playerId=${props.userPlayerId}&offset=<offset>&limit=<limit>&apikey=${process.env.REACT_APP_API_KEY}`;
+    /* playerId를 아예 없애면 offset 부터 10개 가져옴  */
+    const topTenUserUrl = `${PROXY}/ranking/ratingpoint?playerId=&offset=0&limit=10&apikey=${process.env.REACT_APP_API_KEY}`;
+
+    try{
+      const targetUserResponse = await fetch(targetUserUrl);
+      const topTenUserResponse = await fetch(topTenUserUrl);
+      if(!targetUserResponse.ok || !topTenUserResponse.ok){
+        throw new Error("Network response was not ok");
+      }
+      const targetUserRankData = await targetUserResponse.json();
+      const topTenUserRankData = await topTenUserResponse.json();
+
+      await setTargetUserRankData(targetUserRankData.rows);
+      await setRankingUserRankData(topTenUserRankData.rows);
+    }
+    catch(error){
+      console.log("An error occurred:", error.message);
+    }
+  }
+
   const [representCharacterId, setRepresentCharacterId] = useState("");
   const [tierImageUrl, setTierImageUrl] = useState("");
   const [ratingWinCount, setRatingWinCount] = useState(0);
@@ -130,6 +153,13 @@ const UserRecord = (props) => {
   const [normalLoseCount, setNormalLoseCount] = useState(0);
   const [normalStopCount, setNormalStopCount] = useState(0);
   const [normalWiningPercent, setNormalWiningPercent] = useState(0.0);
+  const [targetUserRankData, setTargetUserRankData] = useState("");
+  const [rankingUserRankData, setRankingUserRankData] = useState("");
+
+  useEffect(()=>{
+    console.log(rankingUserRankData);
+  },[rankingUserRankData])
+
   const replaceUseStateInRecord = () => {
     setRepresentCharacterId(props.userMatchData.represent.characterId);
   }
@@ -247,8 +277,43 @@ const UserRecord = (props) => {
         </div>
       </div>
       <div className="userRecordMainSection">
-        <div className="userRecordMainMostCyperWrap">
-          <h5>Most 사이퍼</h5>
+        <div className="userRecordMainRankingWrap">
+          <h5>실시간 랭킹</h5>
+          <div className="userRecordMainRankingInner">
+              {
+                targetUserRankData == '' ? null : 
+                (
+                  <div className="usersRankingContents">
+                    <div className={`differenceOfRank ${(targetUserRankData[0].beforeRank - targetUserRankData[0].rank) > 0 ? "rankUp" : (targetUserRankData[0].beforeRank - targetUserRankData[0].rank) == 0 ? "rankSame" : "rankDown"}`}>
+                      {(targetUserRankData[0].beforeRank - targetUserRankData[0].rank) == 0 ? "" : Math.abs(targetUserRankData[0].beforeRank - targetUserRankData[0].rank)}
+                    </div>
+                    <span className={`userRanking ${(targetUserRankData[0].beforeRank - targetUserRankData[0].rank) > 0 ? "rankUp" : (targetUserRankData[0].beforeRank - targetUserRankData[0].rank) == 0 ? "rankSame" : "rankDown"}`}>{`${targetUserRankData[0].rank}위`}</span>
+                    <img className="userRepresentCharImgInRank" src={`https://img-api.neople.co.kr/cy/characters/${targetUserRankData[0].represent.characterId}?zoom=2`} alt=''></img>
+                    <span className='userRankingName'>{targetUserRankData[0].nickname}</span>
+                    <span className='userRankingGrade'>{targetUserRankData[0].grade}급</span>
+                    <span className='userRankingRatePoint'>{targetUserRankData[0].ratingPoint} RP</span>
+                  </div>
+                )
+              }
+            <div className="userRecordRankingDivideDot"></div>
+              {
+                rankingUserRankData == '' ? null : 
+                (
+                  rankingUserRankData.map((item, index)=>(
+                    <div className="usersRankingContents">
+                      <div className={`differenceOfRank ${(item.beforeRank - item.rank) > 0 ? "rankUp" : (item.beforeRank - item.rank) == 0 ? "rankSame" : "rankDown"}`}>
+                      {(item.beforeRank - item.rank) == 0 ? "" : Math.abs(item.beforeRank - item.rank)}
+                      </div>
+                      <span className={`userRanking ${(item.beforeRank - item.rank) > 0 ? "rankUp" : (item.beforeRank - item.rank) == 0 ? "rankSame" : "rankDown"}`}>{`${item.rank}위`}</span>
+                      <img className="userRepresentCharImgInRank" src={`https://img-api.neople.co.kr/cy/characters/${item.represent.characterId}?zoom=2`} alt=''></img>
+                      <span className='userRankingName'>{item.nickname}</span>
+                      <span className='userRankingGrade'>{item.grade}급</span>
+                      <span className='userRankingRatePoint'>{item.ratingPoint} RP</span>
+                    </div>
+                  ))
+                )
+              }
+          </div>
         </div>
         <div className="userRecordMainRecordWrap">
           
