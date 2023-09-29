@@ -155,11 +155,37 @@ const UserRecord = (props) => {
   const [normalWiningPercent, setNormalWiningPercent] = useState(0.0);
   const [targetUserRankData, setTargetUserRankData] = useState("");
   const [rankingUserRankData, setRankingUserRankData] = useState("");
+  const [nickNameInputText, setNicknameInputText] = useState("")
 
+  const submitFunc = async (event) =>{
+    event.preventDefault();
+    if(nickNameInputText == "")return;
+    const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+    const url = `${PROXY}/players?nickname=${nickNameInputText}&wordType=<wordType>&apikey=${process.env.REACT_APP_API_KEY}`;
+
+    try{
+      const response = await fetch(url);
+      if(!response.ok){
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      const playerId = data.rows[0].playerId;
+
+      props.setUserPlayerId(playerId);
+    }
+    catch(error){
+      console.log("An error occurred:", error.message);
+      alert("존재하지 않는 닉네임이거나 정보를 받지 못하였습니다.")
+    }
+
+    /* 초기화 */
+    setNicknameInputText("");
+  }
 
   const replaceUseStateInRecord = () => {
     setRepresentCharacterId(props.userMatchData.represent.characterId);
   }
+  
   /* 티어이미지 */
   const setUserTierImage = ()=>{
     if(props.userMatchData.tierName == ""){
@@ -234,6 +260,20 @@ const UserRecord = (props) => {
   return (
     <div className='UserRecord inner'>
       <div className="userRecordTopSpace"></div>
+      <div className="userRecordHeader">
+        <div className="userRecordHeaderInner contents_inner">
+          <p className='Macho userRecordHeaderName'>플레이어 전적검색</p>
+          <form onSubmit={submitFunc} action="" className='userRecordSearchForm'>
+            <div className="userRecordSearchCountry ">
+              <p className='BlackOps'>KR</p>
+            </div>
+            <input type="text" className='userRecordUserInput' placeholder='닉네임을 입력해주세요' value={nickNameInputText} onChange={(event)=>{setNicknameInputText(event.target.value)}} />
+            <button type='submit' className='userRecordUserSearchButton'>
+              <img src="/img/icon/search_icon.png" alt="" />
+            </button>
+          </form>
+        </div>
+      </div>
       <div className="userRecordTopSection">
         <div className="contents_inner">
           <div className="userRepresentCharacterWrap">
@@ -303,7 +343,7 @@ const UserRecord = (props) => {
                 rankingUserRankData == '' ? null : 
                 (
                   rankingUserRankData.map((item, index)=>(
-                    <div className="usersRankingContents">
+                    <div key={index} className="usersRankingContents">
                       
                       <div className={`userRanking ${(item.beforeRank - item.rank) > 0 ? "rankUp" : (item.beforeRank - item.rank) == 0 ? "rankSame" : "rankDown"}`}>{`${item.rank}위`}
                         <div className={`differenceOfRank ${(item.beforeRank - item.rank) > 0 ? "rankUp" : (item.beforeRank - item.rank) == 0 ? "rankSame" : "rankDown"}`}>

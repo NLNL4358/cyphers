@@ -177,7 +177,7 @@ const ApiSearchSection = (props) => {
 
               {/* 제출을 위한 type = ' submit ' 버튼 */}
             <button type='submit' className='userNameSubmitButton'>
-              <img className='userNameSubmitButtonImage' src="img/icon/search_icon.png" alt="" />
+              <img className='userNameSubmitButtonImage' src="/img/icon/search_icon.png" alt="" />
             </button>
           </div>
         </form>

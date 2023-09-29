@@ -3,6 +3,107 @@
   height: 90px;
   background-color: #111;
 }
+.userRecordHeader{
+  width: 100%;
+  height: 70px;
+  background-color: rgb(20, 20, 20);
+}
+.userRecordHeaderInner{
+  height: 100%;
+  padding: 0px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+.userRecordHeaderName{
+  color: white;
+
+  position: absolute;
+  left: 50px;
+  top: 50%;
+
+  transform: translate(0%,-50%);
+}
+.userRecordSearchForm{
+  width: 900px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border : 1px solid #31313C; 
+  border-radius: 5px;
+  overflow: hidden;
+
+  position: relative;
+}
+.userRecordSearchCountry{
+  width: 120px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #31313C;
+}
+.userRecordSearchCountry p{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  color: white;
+
+  border-right: 2px dotted white;
+}
+
+.userRecordSearchCountry p::before{
+  position: absolute;
+  content: "";
+
+  border-top: 9px solid white;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 9px solid transparent;
+
+  right: 23px;
+  top: 50%;
+  transform: translate(0%,-25%);
+}
+
+.userRecordUserInput{
+  width: 780px;
+  height: 100%;
+  background-color: white;
+  outline: none;
+  border: none;
+  padding-left: 30px;
+}
+.userRecordUserInput::placeholder{
+  color: #BBB;
+}
+.userRecordUserSearchButton{
+  width: 80px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userRecordUserSearchButton img {
+  width: 23px;
+  height: 23px;
+  opacity: 0.4;
+}
+.userRecordUserSearchButton:hover img {
+  opacity: 0.7;
+} 
+
 .userRecordTopSection{
   position: relative;
   width: 100%;
@@ -549,6 +650,13 @@
   .differenceOfRank::before{
     position: absolute;
     content: "";
+  }
+  .differenceOfRank.rankSame::before{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #BBB;
+    transform: translate(-150%, -50%);
   }
   .differenceOfRank.rankUp::before{
     width: 0;

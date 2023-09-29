@@ -82,45 +82,6 @@ function App() {
   /* Netlify 호스팅을 위한 세팅 */
   const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 
-
-  // /* 매치 검색 */
-  // const getMatch = async () => {
-
-  //   /* 시간 (<startDate> , <endDate>) 이 꼭 필요하다!! */
-  //   let currentDay = new Date();
-  //   let dateFormat1 = currentDay.getFullYear() + "-" + ( (currentDay.getMonth()) < 9 ? "0" + (currentDay.getMonth()+1) : (currentDay.getMonth()+1) ) + "-" + ( (currentDay.getDate()) < 9 ? "0" + (currentDay.getDate()) : (currentDay.getDate()) ) +" "+ (currentDay.getHours())+":"+(currentDay.getMinutes());
-  //   let threeMonthAgo = new Date(currentDay.setMonth(currentDay.getMonth() - 2));
-  //   let dateFormat2 = threeMonthAgo.getFullYear() + "-" +  ( (threeMonthAgo.getMonth()) < 9 ? "0" + (threeMonthAgo.getMonth()+1) : (threeMonthAgo.getMonth()+1) ) + "-" + ( (threeMonthAgo.getDate()) < 9 ? "0" + (threeMonthAgo.getDate()) : (threeMonthAgo.getDate()) ) +" "+ (currentDay.getHours())+":"+(currentDay.getMinutes()+1);
-
-
-  //   /* Netlify 호스팅을 위한 세팅 */
-  //   const url = `${PROXY}/players/${userPlayerId}/matches?gameTypeId=${gameType}&startDate=${dateFormat2}&endDate=${dateFormat1}&limit=100&apikey=${process.env.REACT_APP_API_KEY}`;
-
-  //   try{
-  //     const response = await fetch(url);
-  //     if(!response.ok){
-  //       throw new Error("Network response was not ok");
-  //     }
-
-  //     const data = await response.json();
-
-  //     let gameIndex = 0;  /* 공식이면 0 , 일반이면 1 */
-  //     if(gameType == "normal"){
-  //       gameIndex = 1;
-  //     }
-  //     /* data.records[0 or 1].winCount or LoseCount or stopCount */
-  //     const MatchData = await data;
-
-  //     /* UserRecord로 가기전에 완료하고 가야하기때문에 await를 걸어줌 */
-  //     await setUserMatchData(MatchData);
-  //   }
-
-  //   catch(error){
-  //     console.log("An error occurred:", error.message);
-  //   }
-  // }
-
-
   return (
     <div className="App inner">
       <Header></Header>
