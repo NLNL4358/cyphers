@@ -156,9 +156,6 @@ const UserRecord = (props) => {
   const [targetUserRankData, setTargetUserRankData] = useState("");
   const [rankingUserRankData, setRankingUserRankData] = useState("");
 
-  useEffect(()=>{
-    console.log(rankingUserRankData);
-  },[rankingUserRankData])
 
   const replaceUseStateInRecord = () => {
     setRepresentCharacterId(props.userMatchData.represent.characterId);
@@ -189,25 +186,28 @@ const UserRecord = (props) => {
   }
   /* 승패 useState */
   const setUserWinAndLose = ()=>{
-    setRatingWinCount(props.userMatchData.records[0].winCount);
-    setRatingLoseCount(props.userMatchData.records[0].loseCount);
-    setRatingStopCount(props.userMatchData.records[0].stopCount);
-    if(props.userMatchData.records[0].winCount == 0 && props.userMatchData.records[0].loseCount == 0 && props.userMatchData.records[0].stopCount == 0){
-      setRatingWiningPercent("-");
-    }
-    else{
-      setRatingWiningPercent(((props.userMatchData.records[0].winCount / (props.userMatchData.records[0].winCount + props.userMatchData.records[0].loseCount + props.userMatchData.records[0].stopCount))*100).toFixed(2));
+    if(props.userMatchData.records[0] != undefined){
+      setRatingWinCount(props.userMatchData.records[0].winCount);
+      setRatingLoseCount(props.userMatchData.records[0].loseCount);
+      setRatingStopCount(props.userMatchData.records[0].stopCount);
+      if(props.userMatchData.records[0].winCount == 0 && props.userMatchData.records[0].loseCount == 0 && props.userMatchData.records[0].stopCount == 0){
+        setRatingWiningPercent("-");
+      }
+      else{
+        setRatingWiningPercent(((props.userMatchData.records[0].winCount / (props.userMatchData.records[0].winCount + props.userMatchData.records[0].loseCount + props.userMatchData.records[0].stopCount))*100).toFixed(2));
+      }
     }
 
-
-    setNormalWinCount(props.userMatchData.records[1].winCount);
-    setNormalLoseCount(props.userMatchData.records[1].loseCount);
-    setNormalStopCount(props.userMatchData.records[1].stopCount);
-    if(props.userMatchData.records[1].winCount == 0 && props.userMatchData.records[1].loseCount == 0 && props.userMatchData.records[1].stopCount == 0){
-      setNormalWiningPercent("-");
-    }
-    else{
-      setNormalWiningPercent((((props.userMatchData.records[1].winCount)/(props.userMatchData.records[1].winCount + props.userMatchData.records[1].loseCount + props.userMatchData.records[1].stopCount))*100).toFixed(2));
+    if(props.userMatchData.records[1] != undefined){
+      setNormalWinCount(props.userMatchData.records[1].winCount);
+      setNormalLoseCount(props.userMatchData.records[1].loseCount);
+      setNormalStopCount(props.userMatchData.records[1].stopCount);
+      if(props.userMatchData.records[1].winCount == 0 && props.userMatchData.records[1].loseCount == 0 && props.userMatchData.records[1].stopCount == 0){
+        setNormalWiningPercent("-");
+      }
+      else{
+        setNormalWiningPercent((((props.userMatchData.records[1].winCount)/(props.userMatchData.records[1].winCount + props.userMatchData.records[1].loseCount + props.userMatchData.records[1].stopCount))*100).toFixed(2));
+      }
     }
   }
 
@@ -281,13 +281,16 @@ const UserRecord = (props) => {
           <h5>실시간 랭킹</h5>
           <div className="userRecordMainRankingInner">
               {
-                targetUserRankData == '' ? null : 
+                /* 공식 전적이 없거나 아직 불러오는 중이면 noRankDataUser 반환 */
+                targetUserRankData == '' ? (<div className='noRankDataUser'>해당 유저는 공식전 전적이 없습니다.</div>) : 
                 (
                   <div className="usersRankingContents">
-                    <div className={`differenceOfRank ${(targetUserRankData[0].beforeRank - targetUserRankData[0].rank) > 0 ? "rankUp" : (targetUserRankData[0].beforeRank - targetUserRankData[0].rank) == 0 ? "rankSame" : "rankDown"}`}>
-                      {(targetUserRankData[0].beforeRank - targetUserRankData[0].rank) == 0 ? "" : Math.abs(targetUserRankData[0].beforeRank - targetUserRankData[0].rank)}
+                    
+                    <div className={`userRanking ${(targetUserRankData[0].beforeRank - targetUserRankData[0].rank) > 0 ? "rankUp" : (targetUserRankData[0].beforeRank - targetUserRankData[0].rank) == 0 ? "rankSame" : "rankDown"}`}>{`${targetUserRankData[0].rank}위`}
+                      <div className={`differenceOfRank ${(targetUserRankData[0].beforeRank - targetUserRankData[0].rank) > 0 ? "rankUp" : (targetUserRankData[0].beforeRank - targetUserRankData[0].rank) == 0 ? "rankSame" : "rankDown"}`}>
+                        {(targetUserRankData[0].beforeRank - targetUserRankData[0].rank) == 0 ? "" : Math.abs(targetUserRankData[0].beforeRank - targetUserRankData[0].rank)}
+                      </div>
                     </div>
-                    <span className={`userRanking ${(targetUserRankData[0].beforeRank - targetUserRankData[0].rank) > 0 ? "rankUp" : (targetUserRankData[0].beforeRank - targetUserRankData[0].rank) == 0 ? "rankSame" : "rankDown"}`}>{`${targetUserRankData[0].rank}위`}</span>
                     <img className="userRepresentCharImgInRank" src={`https://img-api.neople.co.kr/cy/characters/${targetUserRankData[0].represent.characterId}?zoom=2`} alt=''></img>
                     <span className='userRankingName'>{targetUserRankData[0].nickname}</span>
                     <span className='userRankingGrade'>{targetUserRankData[0].grade}급</span>
@@ -301,10 +304,12 @@ const UserRecord = (props) => {
                 (
                   rankingUserRankData.map((item, index)=>(
                     <div className="usersRankingContents">
-                      <div className={`differenceOfRank ${(item.beforeRank - item.rank) > 0 ? "rankUp" : (item.beforeRank - item.rank) == 0 ? "rankSame" : "rankDown"}`}>
-                      {(item.beforeRank - item.rank) == 0 ? "" : Math.abs(item.beforeRank - item.rank)}
+                      
+                      <div className={`userRanking ${(item.beforeRank - item.rank) > 0 ? "rankUp" : (item.beforeRank - item.rank) == 0 ? "rankSame" : "rankDown"}`}>{`${item.rank}위`}
+                        <div className={`differenceOfRank ${(item.beforeRank - item.rank) > 0 ? "rankUp" : (item.beforeRank - item.rank) == 0 ? "rankSame" : "rankDown"}`}>
+                        {(item.beforeRank - item.rank) == 0 ? "" : Math.abs(item.beforeRank - item.rank)}
+                        </div>
                       </div>
-                      <span className={`userRanking ${(item.beforeRank - item.rank) > 0 ? "rankUp" : (item.beforeRank - item.rank) == 0 ? "rankSame" : "rankDown"}`}>{`${item.rank}위`}</span>
                       <img className="userRepresentCharImgInRank" src={`https://img-api.neople.co.kr/cy/characters/${item.represent.characterId}?zoom=2`} alt=''></img>
                       <span className='userRankingName'>{item.nickname}</span>
                       <span className='userRankingGrade'>{item.grade}급</span>

@@ -124,7 +124,7 @@
 }
 .userRecordMainRankingInner{
   background-color: #44444E;
-  padding: 30px 15px;
+  padding: 30px 25px;
   border-radius: 15px;
 }
 
@@ -531,27 +531,63 @@
 /* ranking */
 .userRecordMainRankingWrap span{
   color: #EEE;
+  font-size: var(--body-size);
 }
-
+.usersRankingContents{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+}
 .differenceOfRank{
-  position: relative;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translate(-100%, -50%);
   font-size: var(--small-size);
 }
+  .differenceOfRank::before{
+    position: absolute;
+    content: "";
+  }
+  .differenceOfRank.rankUp::before{
+    width: 0;
+    height: 0;
+    border-top: 9px solid transparent;
+    border-left : 6px solid transparent;
+    border-right : 6px solid transparent;
+    border-bottom : 9px solid #FF3A3A;
+    transform: translate(-120%,-25%);
+
+  }
+  .differenceOfRank.rankDown::before{
+    width: 0;
+    height: 0;
+    border-top: 9px solid #5383E8;
+    border-left : 6px solid transparent;
+    border-right : 6px solid transparent;
+    border-bottom : 9px solid transparent;
+    transform: translate(-120%,25%);
+  }
   .differenceOfRank.rankUp{
     color: #FF3A3A;
   }
   .differenceOfRank.rankDown{
     color: #5383E8;
   }
-
-.usersRankingContents{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  margin-bottom: 15px;
+.noRankDataUser{
+  text-align: center;
+  color: #DDD;
 }
 
+.userRanking{
+  margin-left: 25px;
+  color: #EEE;
+  font-size: var(--body-size);
+  width: 60px;
+  text-align: center;
+  position: relative;
+}
 .userRepresentCharImgInRank{
   width: 25px;
   height: 25px;
@@ -562,4 +598,15 @@
   margin: 30px auto;
   height: 0px;
   border-top: 1px dotted white;
+}
+
+.userRankingName{
+  margin-left: 5px;
+  width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.userRankingRatePoint{
+  margin-left: auto;
 }
