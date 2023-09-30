@@ -62,6 +62,52 @@ const Header = () => {
       '약관 및 정책'
     ]
   ];
+  const snbLink = [
+    [
+      '',
+      '',
+      '',
+      ''
+    ],
+
+    [
+      '/StoryPage',
+      '/CypherPage',
+      '',
+      '',
+      ''
+    ],
+
+    [
+      '',
+      '',
+      '',
+      '/UserRecordPreface'
+    ],
+
+    [
+      '',
+      ''
+    ],
+
+    [
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      ''
+    ],
+
+    [
+      '',
+      '',
+      '',
+      ''
+    ]
+  ];
 
   /* 스크롤되었을때 HeaderNexon의 높이 0으로 만들자 */
   let [headerScroll, setHeaderScroll] = useState("");
@@ -188,11 +234,11 @@ const Header = () => {
             <div className="SnbWrap">
               <ul className='SnbUl' onMouseOver={gnbMouseOver} onMouseOut={gnbMouseOut}>
                 {
-                  snbList.map((item, index)=>(
-                    <li key={index} className={`SnbLi ${index}`}>
+                  snbList.map((item, index1)=>(
+                    <li key={index1} className={`SnbLi ${index1}`}>
                       {
-                        item.map((item, index)=>(
-                          <Link key={index} className='SnbText'>
+                        item.map((item, index2)=>(
+                          <Link to={snbLink[index1][index2]} key={index2} className='SnbText'>
                             {item}
                           </Link>
                         ))

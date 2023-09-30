@@ -83,6 +83,7 @@ const UserRecord = (props) => {
     getMatch();
   },[props.gameType])
 
+
   /* 매치 검색 */
   const getMatch = async () => {
 

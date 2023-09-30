@@ -1,0 +1,146 @@
+.userRecordPreface{
+  height: 1055px;
+  background-color: #202020;
+}
+.userRecordPrefaceTopSpace{
+  height: 90px;
+}
+.userRecordPrefaceMain{
+  display: flex;
+  height: calc(100% - 90px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.userRecordPrefaceBackgroundImage{
+  width: 100%;
+  max-width: 2500px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  transform: translate(5%);
+  pointer-events: none;
+}
+.userRecordPrefaceH1{
+  z-index: 5;
+  font-size: 150px;
+  color: white;
+  font-weight: 100;
+
+  width: 100%;
+  text-align: center;
+
+  line-height: 120px;
+}
+.userRecordPrefaceH1 point1{
+  font-family: 'Black Ops One', cursive;
+  color: var(--point-color1);
+  font-size: 150px;
+  font-weight: 100;
+}
+
+.userRecordPrefaceSubmitWrap{
+  width: 1200px;
+  height: 80px;
+  margin : 80px 0px 100px 0px;
+  position: relative;
+  border-radius: 60px;
+  overflow: hidden;
+}
+
+.userRecordPrefaceSearchForm{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+}
+
+.userRecordPrefaceSearchCountry{
+  position: absolute;
+  left: 0px;
+  top: 0;
+  width: 160px;
+  height: 100%;
+  background-color: #31313C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 5;
+}
+  .userRecordPrefaceSearchCountry::before{
+    content: "";
+    position: absolute;
+    width: 17px;
+    height: 50%;
+    border-radius: 8px;
+    background-color: #222222;
+
+    left: 125px;
+  }
+  .userRecordPrefaceSearchCountry::after{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    left: 125px;
+    transition: 0.3s;
+  }
+  .userRecordPrefaceSearchCountry.rating::after{
+    transform: translate(0%,-60%);
+  }
+  .userRecordPrefaceSearchCountry.normal::after{
+    transform: translate(0%,60%);
+  }
+.userRecordPrefaceSearchCountry p{
+  color: white;
+}
+
+
+.userRecordPrefaceUserInput{
+  margin-left: auto;
+  width: 1040px;
+  height: 100%;
+  padding : 0px 0px 0px 80px;
+
+  outline: none;
+  font-size: var(--p-size);
+
+}
+  .userRecordPrefaceUserInput::placeholder{
+    color: #CCC; 
+  }
+
+.userRecordPrefaceNoticeText{
+  color: white;
+  text-align: center;
+  z-index: 5;
+}
+
+.userRecordPrefaceUserSearchButton{
+  position: absolute;
+  width: 120px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userRecordPrefaceUserSearchButton img{
+  width: 35px;
+  height: 35px;
+  margin-right: 35px;
+  opacity: 0.5;
+  transition: 0.2s;
+} 
+.userRecordPrefaceUserSearchButton:hover img{
+  opacity: 0.8;
+}

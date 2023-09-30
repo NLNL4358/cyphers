@@ -20,6 +20,7 @@ import HomePage from './pages/HomePage';
 import StoryPage from './pages/StoryPage';
 import CypherPage from './pages/CypherPage';
 import UserRecord from './pages/UserRecord';
+import UserRecordPreface from './pages/UserRecordPreface';
 function App() {
 
 
@@ -92,11 +93,14 @@ function App() {
 
         {/* 스토리 */}
         {/* 라우트 안에 라우트가 필요할떄 와일드 카드(*)를 주소 뒤에 붙혀준다 이후 무엇인가 더 온다는 뜻이다 */}
-        <Route path='/StoryPage/*' element={<StoryPage></StoryPage>}></Route>
+        <Route path='/StoryPage' element={<StoryPage></StoryPage>}></Route>
 
         {/* 사이퍼 */}
         <Route path='/CypherPage' element={<CypherPage></CypherPage>}></Route>
 
+
+        {/* 전적검색 preface 페이지 */}
+        <Route path='/UserRecordPreface' element={<UserRecordPreface gameType={gameType} setGameType={(type)=>{setGameType(type)}} userNickName={userNickName} setUserNickName={(name)=>{setUserNickName(name)}} userPlayerId={userPlayerId} setUserPlayerId={(Id)=>{setUserPlayerId(Id)}}></UserRecordPreface>}></Route>
 
         {/* 전적검색 */}
         <Route path='/UserRecord' element={<UserRecord userNickName={userNickName} setUserNickName={(name)=>{setUserNickName(name)}} gameType={gameType} setGameType={(Type)=>{setGameType(Type)}} userPlayerId={userPlayerId} setUserPlayerId={(Id)=>{setUserPlayerId(Id)}} userMatchData={userMatchData} setUserMatchData={(Data)=>{setUserMatchData(Data)}}></UserRecord>}></Route>
