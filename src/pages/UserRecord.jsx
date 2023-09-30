@@ -70,6 +70,8 @@ const UserRecord = (props) => {
     if(props.userPlayerId ==""){
       return;
     }
+    setUserWinAndLose();
+    setUserTierImage();
     getMatch();
     getRank();
     /* 자연스럽게 바뀌도록 스크롤 탑 && 0.5초 후 page 0으로만들기 */
@@ -210,30 +212,55 @@ const UserRecord = (props) => {
     else if(props.userMatchData.tierName.includes("BRONZE")){
       setTierImageUrl("/img/icon/tier-bronze.png")
     }
+
   }
   /* 승패 useState */
   const setUserWinAndLose = ()=>{
-    if(props.userMatchData.records[0] != undefined){
-      setRatingWinCount(props.userMatchData.records[0].winCount);
-      setRatingLoseCount(props.userMatchData.records[0].loseCount);
-      setRatingStopCount(props.userMatchData.records[0].stopCount);
-      if(props.userMatchData.records[0].winCount == 0 && props.userMatchData.records[0].loseCount == 0 && props.userMatchData.records[0].stopCount == 0){
+    if(props.userMatchData == '')return;
+    /* 진짜 이상하게도 API에서 만약 공식전적이 없다면 0번 배열에 공식전전적이아닌 일반전 전적이들어감... 즉, if문을 2중으로 써야함  */
+    else if(props.userMatchData.records[0] != undefined){
+      if(props.userMatchData.records[0].gameTypeId == 'rating'){
+        setRatingWinCount(props.userMatchData.records[0].winCount);
+        setRatingLoseCount(props.userMatchData.records[0].loseCount);
+        setRatingStopCount(props.userMatchData.records[0].stopCount);
+        if(props.userMatchData.records[0].winCount == 0 && props.userMatchData.records[0].loseCount == 0 && props.userMatchData.records[0].stopCount == 0){
+          setRatingWiningPercent("-");
+        }
+        else{
+          setRatingWiningPercent(((props.userMatchData.records[0].winCount / (props.userMatchData.records[0].winCount + props.userMatchData.records[0].loseCount + props.userMatchData.records[0].stopCount))*100).toFixed(2));
+        }
+      }
+      else if(props.userMatchData.records[0].gameTypeId == 'normal'){
+        setRatingWinCount("0");
+        setRatingLoseCount("0");
+        setRatingStopCount("0");
         setRatingWiningPercent("-");
       }
-      else{
-        setRatingWiningPercent(((props.userMatchData.records[0].winCount / (props.userMatchData.records[0].winCount + props.userMatchData.records[0].loseCount + props.userMatchData.records[0].stopCount))*100).toFixed(2));
-      }
+
     }
 
-    if(props.userMatchData.records[1] != undefined){
-      setNormalWinCount(props.userMatchData.records[1].winCount);
-      setNormalLoseCount(props.userMatchData.records[1].loseCount);
-      setNormalStopCount(props.userMatchData.records[1].stopCount);
-      if(props.userMatchData.records[1].winCount == 0 && props.userMatchData.records[1].loseCount == 0 && props.userMatchData.records[1].stopCount == 0){
-        setNormalWiningPercent("-");
+    if(props.userMatchData.records[1] != undefined || props.userMatchData.records[0] == 'normal'){
+      if(props.userMatchData.records[0].gameTypeId == 'rating'){
+        setNormalWinCount(props.userMatchData.records[1].winCount);
+        setNormalLoseCount(props.userMatchData.records[1].loseCount);
+        setNormalStopCount(props.userMatchData.records[1].stopCount);
+        if(props.userMatchData.records[1].winCount == 0 && props.userMatchData.records[1].loseCount == 0 && props.userMatchData.records[1].stopCount == 0){
+          setNormalWiningPercent("-");
+        }
+        else{
+          setNormalWiningPercent((((props.userMatchData.records[1].winCount)/(props.userMatchData.records[1].winCount + props.userMatchData.records[1].loseCount + props.userMatchData.records[1].stopCount))*100).toFixed(2));
+        }
       }
-      else{
-        setNormalWiningPercent((((props.userMatchData.records[1].winCount)/(props.userMatchData.records[1].winCount + props.userMatchData.records[1].loseCount + props.userMatchData.records[1].stopCount))*100).toFixed(2));
+      else if(props.userMatchData.records[0].gameTypeId == 'normal'){
+        setNormalWinCount(props.userMatchData.records[0].winCount);
+        setNormalLoseCount(props.userMatchData.records[0].loseCount);
+        setNormalStopCount(props.userMatchData.records[0].stopCount);
+        if(props.userMatchData.records[0].winCount == 0 && props.userMatchData.records[1].loseCount == 0 && props.userMatchData.records[0].stopCount == 0){
+          setNormalWiningPercent("-");
+        }
+        else{
+          setNormalWiningPercent((((props.userMatchData.records[0].winCount)/(props.userMatchData.records[0].winCount + props.userMatchData.records[0].loseCount + props.userMatchData.records[0].stopCount))*100).toFixed(2));
+        }
       }
     }
   }
