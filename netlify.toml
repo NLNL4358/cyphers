@@ -6,6 +6,6 @@ from = "/proxy/*"
 
 [[redirects]]
 from = "/*"
-  to = "index.html"
+  to = "src/app.js"
   status = 200
   force = true
