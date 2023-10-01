@@ -2,6 +2,9 @@
 from = "/*"
   to = "/index.html"
   status = 200
+  force = true
+  
+[[redirects]]
 from = "/proxy/*"
   to = "https://api.neople.co.kr/cy/:splat"  
   status = 200
