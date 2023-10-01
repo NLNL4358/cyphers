@@ -46,7 +46,7 @@ import UserRecordComponent from '../components/SubPageComponent/UserRecordCompon
 const UserRecord = (props) => {
 
   /* Netlify 호스팅을 위한 세팅 */
-  const PROXY = window.location.hostname === 'localhost' ? '' : '/';
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 
 
   useEffect(()=>{

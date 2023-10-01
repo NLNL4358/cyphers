@@ -8,7 +8,7 @@ import "../css/SubPageCss/UserRecordPreface.css"
 /* props로 받은것  gameType,setGameType  , userNickName,setUserNickName , userPlayerId, setUserPlayerId*/
 const UserRecordPreface = (props) => {
   
-  const PROXY = window.location.hostname === 'localhost' ? '' : '/';
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 
   const navigate = useNavigate();
   const [gameTypeState, setGameTypeState] = useState("rating");
