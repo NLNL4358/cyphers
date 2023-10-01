@@ -8,7 +8,7 @@ import "../css/SubPageCss/UserRecordPreface.css"
 /* props로 받은것  gameType,setGameType  , userNickName,setUserNickName , userPlayerId, setUserPlayerId*/
 const UserRecordPreface = (props) => {
   
-  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+  const PROXY = window.location.hostname === 'localhost' ? '' : 'https://api.neople.co.kr/cy/';
 
   const navigate = useNavigate();
   const [gameTypeState, setGameTypeState] = useState("rating");
@@ -25,7 +25,6 @@ const UserRecordPreface = (props) => {
   const submitFuncInPreface = async (event) =>{
     event.preventDefault();
     if(nickNameInputText == "")return;
-    const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
     const url = `${PROXY}/players?nickname=${nickNameInputText}&wordType=<wordType>&apikey=${process.env.REACT_APP_API_KEY}`;
 
     try{
