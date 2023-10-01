@@ -101,7 +101,7 @@ const UserRecordComponent = (props) => {
   }
 
   /* Netlify 호스팅을 위한 세팅 */
-  const PROXY = window.location.hostname === 'localhost' ? '' : 'https://api.neople.co.kr/cy/';
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/';
 
   const getMatchDetailData = async () => {
     const url = `${PROXY}/matches/${props.matchesRow.matchId}?&apikey=${process.env.REACT_APP_API_KEY}`
