@@ -1,6 +1,7 @@
 .userRecordPreface{
   height: 1055px;
   background-color: #202020;
+  overflow: hidden;
 }
 .userRecordPrefaceTopSpace{
   height: 90px;
