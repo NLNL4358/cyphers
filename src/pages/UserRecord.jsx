@@ -52,6 +52,7 @@ const UserRecord = (props) => {
   useEffect(()=>{
     getMatch();
     getRank();
+    setRefreshing(false);
   },[])
 
   useEffect(()=>{
@@ -90,6 +91,7 @@ const UserRecord = (props) => {
   /* GameType이 바뀌었을때 다시금 matchData 가져오도록! */
   useEffect(()=>{
     if(props.gameType == ""){return;}
+    setRefreshing(false);
     getMatch();
   },[props.gameType])
 

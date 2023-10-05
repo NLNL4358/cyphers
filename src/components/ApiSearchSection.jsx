@@ -124,7 +124,10 @@ const ApiSearchSection = (props) => {
         /* json() 처리가 끝날때까지 await 필요! */
         const data = await response.json();
         /* 여기까지 완료되면 data에는 rows라는 객체안에 하나의 Array가 오게된다!! */
-
+        if(data.rows.length === 0){
+          alert("존재하지 않는 닉네임의 유저입니다.");
+          return;
+        }
         /* rows객체의 0번째 배열의 playerId 키가 가르키는 키값이 playerID 값 이다*/
         const playerId = data.rows[0].playerId;
 
