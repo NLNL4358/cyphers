@@ -60,9 +60,9 @@
 #### Header
 - Navigation 기능 서브페이지로 이동, 게임시작, 로그인 등..
 - ### 현재 구현된 서브페이지 :
-     ##### :small_blue_diamond:게임정보 -- 세계관
-     ##### :small_blue_diamond:게임정보 -- 캐릭터 이클립스
-     ##### :small_blue_diamond:랭킹 -- 전적검색
+     ##### :small_blue_diamond:게임정보 > 세계관
+     ##### :small_blue_diamond:게임정보 > 캐릭터 이클립스
+     ##### :small_blue_diamond:랭킹 > 전적검색
   
 #### Main
 - Background video, Logo, Gamestart Button을 배치
@@ -88,11 +88,27 @@
 
 
 
-### :small_blue_diamond: [서브페이지 - 세계관](https://cyphers.netlify.app/#/StoryPage)
+### :small_blue_diamond: 서브페이지 - 스토리 [Link](https://cyphers.netlify.app/#/StoryPage)
 
+- 헤더에서 게임정보 > 세계관 클릭하거나 메인페이지에서 StorySection 의 버튼을 클릭하면 서브페이지로 이동한다.
+  
+![Sub_story](https://github.com/NLNL4358/cyphers/assets/100134222/399a1de3-7687-4bdd-8adf-41aff6e28375)
 
-### :small_blue_diamond: 서브페이지 - 에버랜드 스토리
+#
 
+### :small_blue_diamond: 서브페이지 - 캐릭터 [Link](https://cyphers.netlify.app/#/CypherPage)
+
+- 헤더에서 게임정보 > 캐릭터 이클립스 클릭하거나 메인페이지에서 CypherSection 의 버튼을 클릭하면 서브페이지로 이동한다.
+  
+![Characters](https://github.com/NLNL4358/cyphers/assets/100134222/8c1eca94-da07-48fc-a146-92af6a748832)
+
+#
+
+### :small_blue_diamond: 서브페이지 - 전적검색 [Link](https://cyphers.netlify.app/#/UserRecordPreface)
+
+- 헤더에서 랭킹 > 전적검색 클릭하여 이동한 recordPreface 페이지에서 닉네임을 입력하거나 OR 메인페이지에서 ApiSearchSection 의 검색란에 닉네임을 입력하면 이동한다.
+
+![Record](https://github.com/NLNL4358/cyphers/assets/100134222/e25cbc84-9bfd-45ff-b92d-ea292590653c)
 
 
 - 테마존별의 설명과 이미지를 탭메뉴 형식으로 만들어 스크롤이 길어지지않게 만듦
