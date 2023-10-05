@@ -40,7 +40,7 @@ import position from '../CypherPageComponent/CharacterPosition';
 */
 
 
-/* props로 받는 데이터 className , userMatchData , matchesRow, gameType*/
+/* props로 받는 데이터 className , userMatchData , matchesRow, gameType, lastComponent*/
 const UserRecordComponent = (props) => {
 
 
@@ -84,6 +84,11 @@ const UserRecordComponent = (props) => {
     }
     whoIsWinTeam(0, matchDetailData.teams[0].players);
     whoIsWinTeam(1, matchDetailData.teams[1].players);
+    if( props.lastComponent )
+    {
+      /* 마지막녀석이였다면 refreshing True! */
+      props.setRefreshing(true)
+    }
   },[matchDetailData])
 
 

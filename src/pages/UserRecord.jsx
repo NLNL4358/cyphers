@@ -58,6 +58,12 @@ const UserRecord = (props) => {
     if(props.userMatchData == ""){
       return;
     }
+
+    /* userMatchData의 전적이 0개일때...! refreshing을 true로 바꿔야한다. */
+    if(props.userMatchData.matches.rows.length == 0){
+      setRefreshing(true);
+    }
+
     /* UserRecord의 useState를 이때 바꿔줌 */
     replaceUseStateInRecord();
     setUserTierImage();
@@ -70,8 +76,10 @@ const UserRecord = (props) => {
     if(props.userPlayerId ==""){
       return;
     }
-    setUserWinAndLose();
-    setUserTierImage();
+    setRefreshing(false);
+
+    // setUserWinAndLose();
+    // setUserTierImage();
     getMatch();
     getRank();
     /* 자연스럽게 바뀌도록 스크롤 탑 && 0.5초 후 page 0으로만들기 */
@@ -84,6 +92,7 @@ const UserRecord = (props) => {
     if(props.gameType == ""){return;}
     getMatch();
   },[props.gameType])
+
 
 
   /* 매치 검색 */
@@ -159,6 +168,15 @@ const UserRecord = (props) => {
   const [targetUserRankData, setTargetUserRankData] = useState("");
   const [rankingUserRankData, setRankingUserRankData] = useState("");
   const [nickNameInputText, setNicknameInputText] = useState("")
+
+  const [refreshing, setRefreshing] = useState (true);
+
+  
+  /* refreshing 가 true일때 화면이 보이고 false일떄는 로딩중... */
+  useEffect(()=>{
+    if(refreshing == undefined){return;}
+    console.log(refreshing);
+  },[refreshing])
 
   const submitFunc = async (event) =>{
     event.preventDefault();
@@ -287,6 +305,13 @@ const UserRecord = (props) => {
 
   return (
     <div className='UserRecord inner'>
+
+      {/* 로딩중 */}
+      <div className={`matchDataLoading ${refreshing}`}>
+        <img className='loadingMartinImage' src="img/characters/martinSD.png" alt="" />
+        <h1 className='loadingText'>Now Loading...</h1>
+      </div>
+
       <div className="userRecordTopSpace"></div>
       <div className="userRecordHeader">
         <div className="userRecordHeaderInner contents_inner">
@@ -391,7 +416,7 @@ const UserRecord = (props) => {
         <div className="userRecordMainRecordWrap">
           
           <h5 className='userRecordMainRecordWrapName'>{props.gameType == "rating" ? "공식전 " : "일반전 "}전투 기록
-            <small className='recordNotice'>(전적은 최대 3개월, 100전의 기록만 열람 가능합니다.)</small>
+            <small className='recordNotice'>(전적은 최대 3개월, 최대 100전의 기록만 열람 가능합니다.)</small>
           </h5>
           <div onClick={()=>{changeGameType()}} className={`gameTypeChangeButtonWrap ${props.gameType}`}>
             <div className="gameTypeButtonCircle"></div>
@@ -405,7 +430,17 @@ const UserRecord = (props) => {
               즉, moreRecordButton 버튼을 클릭하면 morePage가 1씩 늘어나니까 10개씩 더 보여주겠다. */
               /* parseInt 는 실수 -> 정수 형태변환 */
               parseInt(index/10) > morePage ? null : 
-              <UserRecordComponent key={index} className={`UserRecordComponent ${parseInt(index/10)}page`} userPlayerId={props.userPlayerId} setUserPlayerId={(Id)=>{props.setUserPlayerId(Id)}} matchData={props.userMatchData} matchesRow={props.userMatchData.matches.rows[index]} gameType = {props.gameType}></UserRecordComponent>
+              (
+                (parseInt(index/10) < parseInt((index+1)/10) || index == props.userMatchData.matches.rows.length-1 )?  /* 마지막 index 즉, 9번째 혹은 마지막이냐? */
+                (
+                  <UserRecordComponent key={index} lastComponent={true} className={`UserRecordComponent ${parseInt(index/10)}page`} setRefreshing={(bool)=>{setRefreshing(bool)}} userPlayerId={props.userPlayerId} setUserPlayerId={(Id)=>{props.setUserPlayerId(Id)}} matchData={props.userMatchData} matchesRow={props.userMatchData.matches.rows[index]} gameType = {props.gameType}></UserRecordComponent>
+                ) 
+                : 
+                (
+                  <UserRecordComponent key={index} lastComponent={false} className={`UserRecordComponent ${parseInt(index/10)}page`} setRefreshing={(bool)=>{setRefreshing(bool)}} userPlayerId={props.userPlayerId} setUserPlayerId={(Id)=>{props.setUserPlayerId(Id)}} matchData={props.userMatchData} matchesRow={props.userMatchData.matches.rows[index]} gameType = {props.gameType}></UserRecordComponent>
+                )
+              )
+              
             ))
           }
           {
