@@ -40,7 +40,7 @@
 <br>
 
 ## 프로젝트 소개 
-:pencil2: 사이퍼즈 웹 페이지 메인에 방문한 사용자에게 다양한 콘텐츠와 API활용 가능케하여 기능적인 측면을 강화함
+:pencil2: 사이퍼즈 웹 페이지 메인에 방문한 사용자에게 다양한 콘텐츠와 API활용으로 전적검색을 가능케하여 기능적인 측면을 강화함
 
 <br>
 
@@ -57,28 +57,43 @@
 ## 페이지 구성 및 주요기능
 
 ### :small_blue_diamond: 메인페이지
-#### 헤더
-#### 메인 슬라이드
-- 이미지를 두개 겹쳐 사용해 애니메이션을 적용하고 페이지 이동을 할 수 있도록 위쪽의 이미지가 클릭을 방해하지 않도록 구성
-#### API 연결
-- 메인페이지의 스크롤이 길기 때문에 따라다니는 형식으로 날씨와 위치정보를 확인 할 수 있게 함
-#### 스마트 예약 & 티켓 프로모션
-- 버튼들의 호버효과로 사용자가 특정 역할이 있는 부분을 가시적으로 확인할 수 있게 구성
-#### What’s New
-#### Editor’s Clip
-#### Everland App
-#### With Everland
-#### 푸터
+#### Header
+- Navigation 기능 서브페이지로 이동, 게임시작, 로그인 등..
+- ### 현재 구현된 서브페이지 :
+     ##### :small_blue_diamond:게임정보 -- 세계관
+     ##### :small_blue_diamond:게임정보 -- 캐릭터 이클립스
+     ##### :small_blue_diamond:랭킹 -- 전적검색
+  
+#### Main
+- Background video, Logo, Gamestart Button을 배치
+- 
+#### News Section
+- 사이퍼즈 게임의 새소식, 공지사항 등 유저에게 개발에 관한 내용 전달
+- 
+#### AcePick Section 
+- 유저들의 팬아트, 팁 글 등의 게시글 중 선정된 게시글을 메인 홈페이지에서 전달
+- 
+#### Banner Section
+- 사이퍼즈 게임의 새로운 이벤트를 배너 슬라이드 형식으로 전달
+- ##### :small_blue_diamond:전적 검색시 서브페이지 ( userRecordPreface ) 로 이동
+- 
+#### ApiSearchSection 
+- API를 이용하여 유저의 전적을 검색할 수 있는 영역
+- 
+#### StorySection , CypherSection , MapSection 
+- 사이퍼즈 게임 내 스토리, 사이퍼, 맵의 가이드를 볼 수 있는 서브페이지로 유도하는 영역
+- ##### :small_blue_diamond:스토리, 사이퍼 영역의 버튼 클릭시 해당 서브페이지로 이동
+- 
+#### Footer
 
 
 
-### :small_blue_diamond: 서브페이지 - 이용요금
-![sub_ticketFee](https://github.com/NLNL4358/everland.gihub.io/assets/100134222/ee35ed12-eacc-49b3-b545-df3125bb2d9b)
+### :small_blue_diamond: [서브페이지 - 세계관](https://cyphers.netlify.app/#/StoryPage)
+
 
 ### :small_blue_diamond: 서브페이지 - 에버랜드 스토리
 
-![sub_learn_more_02](https://github.com/NLNL4358/everland.gihub.io/assets/73161027/8d220800-1931-4296-94c2-9e16f9aece92)
-![sub_learn_more_01](https://github.com/NLNL4358/everland.gihub.io/assets/73161027/7d7c78c0-13bb-4233-8c21-298e501049fd)
+
 
 - 테마존별의 설명과 이미지를 탭메뉴 형식으로 만들어 스크롤이 길어지지않게 만듦
 - 스크롤 시 테마존의 사이드 바가 스티키로 따라다니게 해서 올라가서 누르지 않아도 클릭할 수 있게 함
