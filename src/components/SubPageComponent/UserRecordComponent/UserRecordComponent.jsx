@@ -82,8 +82,7 @@ const UserRecordComponent = (props) => {
     if(matchDetailData == ""){
       return;
     }
-    whoIsWinTeam(0, matchDetailData.teams[0].players);
-    whoIsWinTeam(1, matchDetailData.teams[1].players);
+    whoIsWinTeam(matchDetailData.teams[0],matchDetailData.teams[1]);
     if( props.lastComponent )
     {
       /* 마지막녀석이였다면 refreshing True! */
@@ -93,15 +92,16 @@ const UserRecordComponent = (props) => {
 
 
                             /* function */
-  const whoIsWinTeam = (index, array) => {
-    if(index){
-      /* 1 패자array */
-      setMatchLoseUser(array);
-      return;
+  const whoIsWinTeam = (array0, array1) => {
+    if(array0.result == 'lose'){
+      /* 0이 패자 1이 승자 */
+      setMatchLoseUser(array0.players);
+      setMatchWinUser(array1.players);
     }
     else{
-      /* 0 승자array */
-      setMatchWinUser(array);
+      /* 0이 승자 1이 패자 */
+      setMatchLoseUser(array1.players);
+      setMatchWinUser(array0.players);
     }
   }
 
@@ -114,6 +114,24 @@ const UserRecordComponent = (props) => {
     try{
       const response = await fetch(url);
       if(!response.ok){
+        switch(response.status){
+          case 400:
+            alert("필수 작성요소가 부족합니다. 파라미터 에러");
+            break;
+          case 401:
+            alert("인증 오류");
+            break;
+          case 404:
+            alert("유효하지 않는 플레이어 정보입니다.");
+            break;
+          case 500:
+            alert("시스템 오류");
+            break;
+          case 503:
+            alert("현재 사이퍼즈 점검 중 입니다.");
+            break;
+        }
+        props.setRefreshing(false);
         throw new Error("Network response was not ok");
       }
 
