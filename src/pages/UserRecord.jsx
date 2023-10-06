@@ -338,6 +338,7 @@ const UserRecord = (props) => {
   const [morePage, setMorePage] = useState(0);
 
   const seeMorePage = () =>{
+    setRefreshing(false);
     setMorePage(morePage+1);
   }
 
