@@ -163,9 +163,7 @@ const Header = () => {
           <button className='HeaderNexon_Left_Button'>
             {/* 메인과 이중라우트 두곳에서 모두 보이게하기위해 img의 경로 앞에 / 를 붙힌다 */}
             <img src="/img/icon/hamburger.png" alt="" />
-            <body>
               메뉴
-            </body>
           </button>
         </div>
 
@@ -182,13 +180,11 @@ const Header = () => {
           <button className='NexonPCRoom_Button'>
             <div className='HeaderSpriteIcon nexonPCRoom'  alt="" />
           </button>
-          <body className='createAccount'>
+          <div className='createAccount'>
             <Link to="/">넥슨 회원가입</Link>
-          </body>
+          </div>
           <button className='LoginButton'>
-            <body>
               넥슨 로그인
-            </body>
           </button>
         </div>
       </div>

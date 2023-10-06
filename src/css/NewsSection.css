@@ -40,6 +40,7 @@
   align-items: center;
 }
 .SmallNameText{
+  font-size: var(--body-size);
   margin: 0.5rem 0rem;
   margin-left: 15px;
   font-weight: bold;
@@ -156,11 +157,12 @@
     height: 100%;
 
   }
-.newsAndMagazineInnerText{
+.newsAndMagazineInnerTextWrap .newsAndMagazineInnerText{
+  font-size: var(--span-size);
   color : white;
   font-weight: bold;
   z-index: 10;
-
+  margin-top: 0px;
   align-items: center;
   width: 90%;
   white-space: nowrap;
@@ -174,7 +176,9 @@
   .CyphersNewsAndMagazineContentsLink:hover .newsAndMagazineInnerText point2{
     color: white;
   }
-.newsAndMagazineInnerTextWrap body{
+.newsAndMagazineInnerTextWrap span{
+  font-size: var(--body-size);
+
   margin-top: 5px;
   color : var(--light-text-color2);
   z-index: 10;
@@ -185,7 +189,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
-  .CyphersNewsAndMagazineContentsLink:hover .newsAndMagazineInnerTextWrap body{
+  .CyphersNewsAndMagazineContentsLink:hover .newsAndMagazineInnerTextWrap span{
     color : black;
   }
 .newsInnerTextWrap{

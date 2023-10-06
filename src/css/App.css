@@ -139,15 +139,15 @@
   position: absolute;
   width: 450px;
   height: 90px;
-  left: -500px;
+  right: -500px;
   top : 0%;
-  
+  transform: scaleX(-1);
   transition: 0.5s;
 }
 .PointButton1:hover .ButtonHoverImage,
 .PointButton2:hover .ButtonHoverImage
 {
-  left: 0%;
+  right: 0%;
 }
 
 

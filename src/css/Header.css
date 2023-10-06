@@ -121,7 +121,7 @@
 
   transition: 0.4s;
 }
-.LoginButton body{
+.LoginButton{
   font-weight: bold;
   transition: 0.5s;
 
@@ -130,7 +130,7 @@
     background-color: var(--point-color3);
     border: none;
   }
- .LoginButton:hover body{
+ .LoginButton:hover{
     color: white;
  }
 
@@ -288,8 +288,8 @@
   position: absolute;
   width: 450px;
   height: 90px;
-
-  left: -450px;
+  transform: scaleX(-1);
+  right: -450px;
 
   transition: 0.7s;
 }
@@ -301,7 +301,7 @@
   color : white;
 }
 .HeaderGameStartButton:hover img{
-  left: 0;
+  right: 0;
 }
 
 
