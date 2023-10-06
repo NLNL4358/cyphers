@@ -605,12 +605,21 @@
     top: 45%;
     transform: translate(-100%,-50%);
   }
+  
   .recordMatchWinMemberWrap::before{
     content: "WIN";
+    opacity: 0.5;
   }
+    .userRecordComponentContentsWrap.win .recordMatchWinMemberWrap::before{
+      opacity: 1;
+    }
   .recordMatchLoseMemberWrap::before{
     content: "LOSE";
+    opacity: 0.5;
   }
+    .userRecordComponentContentsWrap.lose .recordMatchLoseMemberWrap::before{
+      opacity: 1;
+    }
 
 .recordMatchMembersCharacterImage{
   width: 50px;

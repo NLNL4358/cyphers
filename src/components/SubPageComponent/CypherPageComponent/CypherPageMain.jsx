@@ -210,7 +210,7 @@ const CypherPageMain = () => {
 
       <div className="CyphersCharacterWrap contents_inner">
         {
-          cyphersImgUrl.map((item, index)=>{
+          cyphersImgUrl && cyphersImgUrl.map((item, index)=>{
             if((positionTag === 'All' || CharacterPositionArrayExport[index] === positionTag) &&
             (typeTag === 'All' || CharacterTypeArrayExport[index] === typeTag))
             {
