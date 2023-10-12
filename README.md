@@ -10,7 +10,7 @@
 ## 프로젝트 정보
 ### :pushpin: 사이퍼즈 웹 페이지 리뉴얼 개인 프로젝트
 
-### :pushpin: 개발 기간 - 2023.09.05 ~ 
+### :pushpin: 개발 기간 - 2023.09.05 ~ 2023.10.04
 
 ### :pushpin: 개발 목적
 - React를 이용하여 React 스킬 증진
@@ -56,7 +56,9 @@
 
 ## 페이지 구성 및 주요기능
 
-### :small_blue_diamond: 메인페이지
+### :small_blue_diamond: 메인페이지 [Link](https://cyphers.netlify.app/#/)
+![cyphersPagePortfolio6](https://github.com/NLNL4358/cyphers/assets/100134222/1477b804-ada7-477b-a316-a72a297e27cf)
+
 #### Header
 - Navigation 기능 서브페이지로 이동, 게임시작, 로그인 등..
 - ### 현재 구현된 서브페이지 :
@@ -66,24 +68,24 @@
   
 #### Main
 - Background video, Logo, Gamestart Button을 배치
-- 
+  
 #### News Section
 - 사이퍼즈 게임의 새소식, 공지사항 등 유저에게 개발에 관한 내용 전달
-- 
+  
 #### AcePick Section 
 - 유저들의 팬아트, 팁 글 등의 게시글 중 선정된 게시글을 메인 홈페이지에서 전달
-- 
+  
 #### Banner Section
 - 사이퍼즈 게임의 새로운 이벤트를 배너 슬라이드 형식으로 전달
-- ##### :small_blue_diamond:전적 검색시 서브페이지 ( userRecordPreface ) 로 이동
-- 
+  
 #### ApiSearchSection 
 - API를 이용하여 유저의 전적을 검색할 수 있는 영역
-- 
+  - ##### :small_blue_diamond:전적 검색시 서브페이지 ( userRecord ) 로 이동
+    
 #### StorySection , CypherSection , MapSection 
 - 사이퍼즈 게임 내 스토리, 사이퍼, 맵의 가이드를 볼 수 있는 서브페이지로 유도하는 영역
-- ##### :small_blue_diamond:스토리, 사이퍼 영역의 버튼 클릭시 해당 서브페이지로 이동
-- 
+  - ##### :small_blue_diamond:스토리, 사이퍼 영역의 버튼 클릭시 해당 서브페이지로 이동
+  
 #### Footer
 
 
@@ -111,29 +113,24 @@
 ![Record](https://github.com/NLNL4358/cyphers/assets/100134222/e25cbc84-9bfd-45ff-b92d-ea292590653c)
 
 
-- 테마존별의 설명과 이미지를 탭메뉴 형식으로 만들어 스크롤이 길어지지않게 만듦
-- 스크롤 시 테마존의 사이드 바가 스티키로 따라다니게 해서 올라가서 누르지 않아도 클릭할 수 있게 함
-- 에버랜드 캐릭터 이미지에 애니메이션을 넣어 경직된 느낌을 없앰
-### :small_blue_diamond: 서브페이지 - 추천 코스
 
 <br>
 
 ## 호스팅
 
-### :star2: [메인페이지](https://nlnl4358.github.io/everland.gihub.io/)
-### :star2: [서브페이지1 - 요금정보](https://nlnl4358.github.io/everland.gihub.io/ticketFee.html)
-### :star2: [서브페이지2 - 테마 스토리](https://nlnl4358.github.io/everland.gihub.io/learn_more.html)
-### :star2: [서브페이지3 - 추천 코스]()
+### :star2: [메인페이지](https://cyphers.netlify.app/)
+### :star2: [서브페이지1 - 전적검색](https://cyphers.netlify.app/#/UserRecordPreface)   /* 추천 검색 닉네임 : ㅡFURYㅡ */
+### :star2: [서브페이지2 - 세계관](https://cyphers.netlify.app/#/StoryPage)
+### :star2: [서브페이지3 - 캐릭터 이클립스](https://cyphers.netlify.app/#/CypherPage)
 
 <br>
 
 ## 산출물
 
-#### :link: [브레인스토밍](https://www.figma.com/file/78Gss8xUi1W4L0yMunGvoa/2%EC%B0%A8-%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-5%EC%A1%B0?type=whiteboard&node-id=18%3A499&t=GuRr72l2A5jehlXk-1)
-#### :link: [와이어프레임](https://www.figma.com/file/lrqwTBSZuE59In8cgsEnSU/2%EC%B0%A8-%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-5%EC%A1%B0?type=design&node-id=0%3A1&mode=design&t=l3vqxxQmRTGyTxmo-1)
-#### :link: [디자인](https://www.figma.com/file/lrqwTBSZuE59In8cgsEnSU/2%EC%B0%A8-%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-5%EC%A1%B0?type=design&node-id=1%3A2&mode=design&t=l3vqxxQmRTGyTxmo-1)
-#### :link: [기획서](https://docs.google.com/presentation/d/14E7Ty9qkvG8qko2dNRNXmHtMKKd28b2Pss3romp0DIs/edit?usp=sharing)
-#### :link: [깃허브](https://github.com/NLNL4358/everland.gihub.io)
+#### :link: [브레인스토밍](https://www.figma.com/file/Sn3xtNjgFEBLlpeB8TJUoN/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?type=whiteboard&node-id=0%3A1&t=gVrklMYp4dW1qEQB-1)
+#### :link: [와이어프레임 및 디자인](https://www.figma.com/file/X2lSnKgFwbsoKuWxMxhs6l/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-Cyphers?type=design&node-id=0%3A1&mode=design&t=Rs7rdKxnK3u4y9tR-1)
+#### :link: [기획서](https://docs.google.com/presentation/d/1NIuKMv-zXthLogBuQ2JNbT5uoJYyAxmbpQzbmfssrIA/edit?usp=sharing)
+#### :link: [깃허브](https://github.com/NLNL4358/cyphers)
 
 <br>
 
