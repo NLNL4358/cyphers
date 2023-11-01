@@ -55,6 +55,9 @@ section{
   /* width: calc(1920px - (100vw - 100%)); */
   width: 1903.4px;
 }
+.contents_inner{
+  width: 81%;
+}
 
 .contents_inner{
   width: 1600px;

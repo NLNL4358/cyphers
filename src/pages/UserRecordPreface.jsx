@@ -12,7 +12,7 @@ const UserRecordPreface = (props) => {
 
   const navigate = useNavigate();
   const [gameTypeState, setGameTypeState] = useState("rating");
-  const [nickNameInputText, setNickNameInputText] = useState("");
+  const [nickNameInputText, setNickNameInputText] = useState("ㅡFURYㅡ");
   const changeSetGameTypeState = (event) => {
     event.preventDefault();
     if(gameTypeState == "rating"){
@@ -52,6 +52,13 @@ const UserRecordPreface = (props) => {
     if(gameTypeState == "")return;
     props.setGameType(gameTypeState);
   },[gameTypeState])
+
+
+
+  useEffect(()=>{
+    setTimeout(()=>{alert("이곳에는 게임에서 사용되는 닉네임을 입력해야합니다.\n\n'ㅡFURYㅡ' 라는 닉네임은 제가 게임에 대해 배울때 시청했던 유튜버의 닉네임입니다. \n\n본인의 닉네임이 없다면 위의 닉네임을 입력해 주세요.")}, 500);
+    
+  },[])
 
   return (
     <div>

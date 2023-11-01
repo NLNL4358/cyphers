@@ -16,6 +16,14 @@ const Header = () => {
     '커뮤니티',
     '고객센터'
   ];
+  const gnbLink = [
+    '',
+    '/StoryPage',
+    '/UserRecordPreface',
+    '',
+    '',
+    ''
+  ]
   const snbList = [
     [
       '공지사항',
@@ -203,7 +211,7 @@ const Header = () => {
                 {
                   gnbList.map((item, index)=>(
                     <li key={index} className={`GnbLi ${index}`}>
-                      <Link>
+                      <Link to={`${gnbLink[index]}`}>
                         <p>
                           {item}
                         </p>

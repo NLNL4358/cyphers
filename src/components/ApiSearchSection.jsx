@@ -175,7 +175,7 @@ const ApiSearchSection = (props) => {
 
             {/* value 값에는 useState인 userNameInput을 사용, 변화될때마다 event.target.value 값을 userNameInput에 넣어준다. */}
             <div className="plsTextHear">Search</div>
-            <input className='ApiInputArea' type="text" placeholder='닉네임을 입력해 주세요' value={userNameInput}
+            <input className='ApiInputArea' type="text" placeholder='닉네임을 입력해 주세요     ex) ㅡFURYㅡ' value={userNameInput}
             onChange={(event)=>{setUserNameInput(event.target.value)}} />
 
               {/* 제출을 위한 type = ' submit ' 버튼 */}
