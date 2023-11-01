@@ -12,7 +12,7 @@ const UserRecordPreface = (props) => {
 
   const navigate = useNavigate();
   const [gameTypeState, setGameTypeState] = useState("rating");
-  const [nickNameInputText, setNickNameInputText] = useState("ㅡFURYㅡ");
+  const [nickNameInputText, setNickNameInputText] = useState("");
   const changeSetGameTypeState = (event) => {
     event.preventDefault();
     if(gameTypeState == "rating"){
@@ -74,7 +74,7 @@ const UserRecordPreface = (props) => {
               </button>
             <form onSubmit={submitFuncInPreface} action="" className='userRecordPrefaceSearchForm'>
               
-              <input type="text" className='userRecordPrefaceUserInput' placeholder='닉네임을 정확히 입력해주세요' value={nickNameInputText} onChange={(event)=>{setNickNameInputText(event.target.value)}} />
+              <input type="text" className='userRecordPrefaceUserInput' placeholder='닉네임을 정확히 입력해주세요      ex) ㅡFURYㅡ' value={nickNameInputText} onChange={(event)=>{setNickNameInputText(event.target.value)}} />
               <button type='submit' className='userRecordPrefaceUserSearchButton'>
                 <img src="/img/icon/search_icon.png" alt="" />
               </button>
