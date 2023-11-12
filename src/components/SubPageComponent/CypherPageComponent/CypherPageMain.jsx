@@ -21,29 +21,23 @@ const CypherPageMain = () => {
 
   /* All 이면 전체선택 중, 각 태그를 누르면 그 태그로 set, 두번누르면 All로 set */
   const [positionTag, setPositionTag] = useState("All"); /* 탱커, 근거리딜러, 원거리딜러, 서포터 */
-  const [positionButton, setPositionButton] = useState("All");
   const [typeTag, setTypeTag] = useState("All"); /* 근거리, 원거리 */
-  const [typeButton, setTypeButton] = useState("All");
 
   /* 포지션 태그 클릭 */
   const changePositionTag = (target) =>{
     if(positionTag === target){
       setPositionTag("All");
-      setPositionButton("All");
       return;
     }
     setPositionTag(target);
-    setPositionButton(target);
   }
 
   const changeTypeTag = (target)=>{
     if(typeTag === target){
       setTypeTag("All");
-      setTypeButton("All");
       return
     }
     setTypeTag(target);
-    setTypeButton(target);
   }
 
 
@@ -139,10 +133,10 @@ const CypherPageMain = () => {
               역할
             </p>
             <div className="CyphersCharacterCategoryTextWrap">
-              <button className={`${positionButton}`} onClick={()=>{changePositionTag("탱커")}}>탱커</button>
-              <button className={`${positionButton}`} onClick={()=>{changePositionTag("근거리딜러")}}>근거리 딜러</button>
-              <button className={`${positionButton}`} onClick={()=>{changePositionTag("원거리딜러")}}>원거리 딜러</button>
-              <button className={`${positionButton}`} onClick={()=>{changePositionTag("서포터")}}>서포터</button>
+              <button className={`${positionTag}`} onClick={()=>{changePositionTag("탱커")}}>탱커</button>
+              <button className={`${positionTag}`} onClick={()=>{changePositionTag("근거리딜러")}}>근거리 딜러</button>
+              <button className={`${positionTag}`} onClick={()=>{changePositionTag("원거리딜러")}}>원거리 딜러</button>
+              <button className={`${positionTag}`} onClick={()=>{changePositionTag("서포터")}}>서포터</button>
             </div>
           </li>
           <li className='attackType'>
@@ -150,8 +144,8 @@ const CypherPageMain = () => {
               공격타입
             </p>
             <div className="CyphersCharacterCategoryTextWrap">
-              <button className={`${typeButton}`} onClick={()=>{changeTypeTag("근거리")}}>근거리</button>
-              <button className={`${typeButton}`} onClick={()=>{changeTypeTag("원거리")}}>원거리</button>
+              <button className={`${typeTag}`} onClick={()=>{changeTypeTag("근거리")}}>근거리</button>
+              <button className={`${typeTag}`} onClick={()=>{changeTypeTag("원거리")}}>원거리</button>
             </div>
           </li>
           <li className='attackTarget'>
